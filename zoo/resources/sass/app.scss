@@ -8,3 +8,34 @@
 @import 'bootstrap/scss/bootstrap';
 
 @import 'bootstrap-icons/font/bootstrap-icons.css';
+
+
+html {
+    position: relative;
+    min-height: 100%;
+    background-color:#D3D3D3;
+
+
+}
+
+//pour être sur de voir tous le contenu de la page (a adapter en fonction de la taille du footer)
+.main {
+    margin-bottom: 250px;
+    background-color: #D3D3D3;
+
+}
+
+footer.footer {
+    padding: 13px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+form {
+    margin-bottom: 50px; /* Ajoute un espace en bas du formulaire pour éviter que les boutons ne soient cachés par le footer */
+}
+
+.text {
+    text-align: justify;
+}
