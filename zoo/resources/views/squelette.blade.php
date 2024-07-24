@@ -51,12 +51,10 @@
                                 <li><a class="dropdown-item" href="/gestionVehicule">Gestion des commentaires</a></li>
                                 <li><a class="dropdown-item" href="/gestionVehicule">Gestion des messages</a></li>
                                 <li><a class="dropdown-item" href="/gestionDeviation">Gestion des animaux</a></li>
-                                <li><a class="dropdown-item" href="/gestionDeviation">Gestion de la santé des animaux</a></li>
-
-
+                                <li><a class="dropdown-item" href="/gestionDeviation">Gestion de la santé des
+                                        animaux</a></li>
                             </ul>
                         </li>
-
 
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
@@ -64,25 +62,24 @@
                                 <a class="nav-link" href="/">Accueil</a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/animaux">Les animaux</a>
-                            </li>
+                        </ul>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/habitat">Leurs habitats</a>
-                            </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/restauration">Restauration</a>
-                            </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Les services du parc
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/restauration">Restauration</a></li>
+                                <li><a class="dropdown-item" href="/visiteGuidee">Visite guidée</a></li>
+                                <li><a class="dropdown-item" href="/petitTrain">Petit train</a></li>
+                            </ul>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/visiteGuidee">Visite guidée</a>
-                            </li>
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/petitTrain">Petit train</a>
-                            </li>
+                            <li class="nav-item">  <a class="nav-link" href="/animaux">Les animaux </a></li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="/contact">Contact</a>
@@ -91,7 +88,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/connexion">Connexion</a>
                             </li>
-
 
                         </ul>
                     </ul>
@@ -115,8 +111,10 @@
                     <p>emplacement 2</p>
 
                 </div>
-                <div class="col-6 col-lg-4 ">
-                    <p>emplacement 3</p>
+                <div class="col-6 col-lg-4">
+                    <a class="navbar-brand text-primary " href="/"> <img class="rounded-circle"
+                            src="{{ asset('logo/logo2.png') }}" width="100px" alt="">
+                    </a>
 
                 </div>
             </div>
