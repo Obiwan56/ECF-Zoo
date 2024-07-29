@@ -17,6 +17,7 @@
                 <a class="navbar-brand text-primary" href="/"> <img src="{{ asset('logo/logo1.png') }}"
                         width="100px" alt="">
                 </a>
+                <h1 class="text-primary">Zoo Arcadia</h1>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +49,8 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/gestionService">Gestion des employé(e)s</a></li>
-                                <li><a class="dropdown-item" href="/gestionVehicule">Gestion des commentaires</a></li>
+                                <li><a class="dropdown-item" href="/gestionCommentaire">Gestion des commentaires</a>
+                                </li>
                                 <li><a class="dropdown-item" href="/gestionVehicule">Gestion des messages</a></li>
                                 <li><a class="dropdown-item" href="/gestionDeviation">Gestion des animaux</a></li>
                                 <li><a class="dropdown-item" href="/gestionDeviation">Gestion de la santé des
@@ -79,7 +81,7 @@
 
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-                            <li class="nav-item">  <a class="nav-link" href="/animaux">Les animaux </a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/animaux">Les animaux </a></li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="/contact">Contact</a>

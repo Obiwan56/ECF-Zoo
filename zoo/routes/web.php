@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,12 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.accueil');
-});
+Route::get('/formCommentaire', [CommentaireController::class, 'formCom']);
+Route::post('/formCommentaire', [CommentaireController::class, 'ajoutCom']);
 
+Route::get('/allCommentaire', [CommentaireController::class, 'listeCommentaireOk']);
+Route::get('/', [CommentaireController::class, 'dixDerCom']);
 
-
+Route::get('/gestionCommentaire', [CommentaireController::class, 'gestionCom']);
+Route::get('/deleteCom/{id}', [CommentaireController::class, 'deleteCom']);
+Route::get('/deleteCom2/{id}', [CommentaireController::class, 'deleteCom2']);
+Route::get('/aprouvCom/{id}', [CommentaireController::class, 'aprouvCom']);
+Route::get('/listeComPubli', [CommentaireController::class, 'commentaireOk']);
 
 
 
@@ -46,7 +52,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Auth::routes();
 
