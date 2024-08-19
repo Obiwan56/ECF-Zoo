@@ -48,7 +48,7 @@
                                 Gestion
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/gestionService">Gestion des employé(e)s</a></li>
+                                <li><a class="dropdown-item" href="/gestionEmploye">Gestion des employé(e)s</a></li>
                                 <li><a class="dropdown-item" href="/gestionCommentaire">Gestion des commentaires</a>
                                 </li>
                                 <li><a class="dropdown-item" href="/gestionVehicule">Gestion des messages</a></li>

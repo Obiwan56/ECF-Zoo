@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,18 @@ Route::get('/deleteCom/{id}', [CommentaireController::class, 'deleteCom']);
 Route::get('/deleteCom2/{id}', [CommentaireController::class, 'deleteCom2']);
 Route::get('/aprouvCom/{id}', [CommentaireController::class, 'aprouvCom']);
 Route::get('/listeComPubli', [CommentaireController::class, 'commentaireOk']);
+
+Route::get('/ajoutEmploye', [UserController::class, 'formUser']);
+Route::post('/ajoutEmploye', [UserController::class, 'creerEmploye']);
+Route::get('/gestionEmploye', [UserController::class, 'listeEmploye']);
+Route::get('/modifEmploye/{id}', [UserController::class, 'modifEmploye']);
+Route::post('/modifEmploye/{id}', [UserController::class, 'modifUser']);
+Route::get('/effacerEmploye/{id}', [UserController::class, 'effacerEmploye']);
+
+Route::get('/deconnexion', [UserController::class, 'deconnexion']);
+
+
+
 
 
 
