@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,7 +38,12 @@ Route::get('/effacerEmploye/{id}', [UserController::class, 'effacerEmploye']);
 
 Route::get('/deconnexion', [UserController::class, 'deconnexion']);
 
-
+Route::get('/gestionService', [ServiceController::class, 'listeService']);
+Route::get('/ajoutService', [ServiceController::class, 'formCreerService']);
+Route::post('/ajoutService', [ServiceController::class, 'creerService']);
+Route::get('/modifService/{id}', [ServiceController::class, 'formModifService']);
+Route::post('/modifService/{id}', [ServiceController::class, 'modifService']);
+Route::get('/effacerService/{id}', [ServiceController::class, 'deleteService']);
 
 
 

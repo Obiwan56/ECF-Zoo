@@ -49,12 +49,12 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/gestionEmploye">Gestion des employé(e)s</a></li>
-                                <li><a class="dropdown-item" href="/gestionCommentaire">Gestion des commentaires</a>
-                                </li>
+                                <li><a class="dropdown-item" href="/gestionCommentaire">Gestion des commentaires</a></li>
+                                <li><a class="dropdown-item" href="/gestionService">Gestion des services</a></li>
+
                                 <li><a class="dropdown-item" href="/gestionVehicule">Gestion des messages</a></li>
                                 <li><a class="dropdown-item" href="/gestionDeviation">Gestion des animaux</a></li>
-                                <li><a class="dropdown-item" href="/gestionDeviation">Gestion de la santé des
-                                        animaux</a></li>
+                                <li><a class="dropdown-item" href="/gestionDeviation">Gestion de la santé des animaux</a></li>
                             </ul>
                         </li>
 
@@ -66,22 +66,11 @@
 
                         </ul>
 
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Les services du parc
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/restauration">Restauration</a></li>
-                                <li><a class="dropdown-item" href="/visiteGuidee">Visite guidée</a></li>
-                                <li><a class="dropdown-item" href="/petitTrain">Petit train</a></li>
-                            </ul>
-                        </li>
-
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
                             <li class="nav-item"> <a class="nav-link" href="/animaux">Les animaux </a></li>
+
+                            <li class="nav-item"> <a class="nav-link" href="/service">Les Services du parc </a></li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="/contact">Contact</a>
