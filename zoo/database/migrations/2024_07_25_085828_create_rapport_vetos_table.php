@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('rapport_vetos', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->text('detail');
+            $table->string('nourriture');
+            $table->string('grammage');
+            $table->text('detail')->nullable();
             $table->foreignId('animal_id')->constrained('animals')->onDelete('cascade');
             $table->timestamps();
         });
