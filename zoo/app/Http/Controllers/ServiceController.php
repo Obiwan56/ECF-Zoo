@@ -7,7 +7,6 @@ use App\Http\Requests\ServiceRequest;
 use App\Http\Requests\ServiceRequest2;
 use App\Models\service;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
 
 class ServiceController extends Controller
 {
@@ -73,63 +72,61 @@ class ServiceController extends Controller
 
 
     public function modifService($id, ServiceRequest2 $request)
-{
-    $service = service::findOrFail($id);
+    {
+        $service = service::findOrFail($id);
 
-    $service->nom = $request->input('nom');
-    $service->description = $request->input('description');
+        $service->nom = $request->input('nom');
+        $service->description = $request->input('description');
 
-    if ($request->hasFile('img1')) {
-        // Supprimer l'ancienne image si elle existe
+        if ($request->hasFile('img1')) {
+            // Supprimer l'ancienne image si elle existe
+            if ($service->img1) {
+                Storage::disk('public')->delete($service->img1);
+            }
+            // Stocker la nouvelle image
+            $service->img1 = $request->file('img1')->store('service', 'public');
+        }
+
+        if ($request->hasFile('img2')) {
+            if ($service->img2) {
+                Storage::disk('public')->delete($service->img2);
+            }
+            $service->img2 = $request->file('img2')->store('service', 'public');
+        }
+
+        if ($request->hasFile('img3')) {
+            if ($service->img3) {
+                Storage::disk('public')->delete($service->img3);
+            }
+            $service->img3 = $request->file('img3')->store('service', 'public');
+        }
+
+        $service->save();
+
+        return redirect('/gestionService')->with('status', 'Service modifié avec succès');
+    }
+
+
+    public function deleteService($id)
+    {
+        $service = service::find($id);
+
         if ($service->img1) {
             Storage::disk('public')->delete($service->img1);
         }
-        // Stocker la nouvelle image
-        $service->img1 = $request->file('img1')->store('service', 'public');
-    }
 
-    if ($request->hasFile('img2')) {
         if ($service->img2) {
             Storage::disk('public')->delete($service->img2);
         }
-        $service->img2 = $request->file('img2')->store('service', 'public');
-    }
 
-    if ($request->hasFile('img3')) {
         if ($service->img3) {
             Storage::disk('public')->delete($service->img3);
         }
-        $service->img3 = $request->file('img3')->store('service', 'public');
+
+        $service->delete();
+
+        return redirect('/gestionService')->with('status', 'Service supprimé avec succès');
     }
-
-    $service->save();
-
-    return redirect('/gestionService')->with('status', 'Service modifié avec succès');
-}
-
-
-public function deleteService($id)
-{
-    $service = service::find($id);
-
-    if ($service->img1) {
-        Storage::disk('public')->delete($service->img1);
-    }
-
-    if ($service->img2) {
-        Storage::disk('public')->delete($service->img2);
-    }
-
-    if ($service->img3) {
-        Storage::disk('public')->delete($service->img3);
-    }
-
-    $service->delete();
-
-    return redirect('/gestionService')->with('status', 'Service supprimé avec succès');
-}
-
-
 }
 
 

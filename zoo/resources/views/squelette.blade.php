@@ -53,8 +53,8 @@
                                 <li><a class="dropdown-item" href="/gestionService">Gestion des services</a></li>
 
                                 <li><a class="dropdown-item" href="/gestionVehicule">Gestion des messages</a></li>
-                                <li><a class="dropdown-item" href="/gestionDeviation">Gestion des animaux</a></li>
-                                <li><a class="dropdown-item" href="/gestionDeviation">Gestion de la santé des animaux</a></li>
+                                <li><a class="dropdown-item" href="/gestionAnimaux">Gestion des animaux</a></li>
+                                <li><a class="dropdown-item" href="/gestionSante">Gestion de la santé des animaux</a></li>
                             </ul>
                         </li>
 

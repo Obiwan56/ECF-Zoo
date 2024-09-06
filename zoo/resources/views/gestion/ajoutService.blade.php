@@ -39,7 +39,7 @@
                 <label for="img2">Photo 2 (facultative)</label>
                 <input type="file" name="img2" id="img2" class="form-control">
 
-                @error('img1')
+                @error('img2')
                     <span class="text-danger"> {{ $message }}</span>
                 @enderror
 
@@ -49,7 +49,7 @@
                 <label for="img3">Photo 3 (facultative)</label>
                 <input type="file" name="img3" id="img3" class="form-control">
 
-                @error('img1')
+                @error('img3')
                     <span class="text-danger"> {{ $message }}</span>
                 @enderror
 

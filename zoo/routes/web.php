@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
@@ -23,6 +24,16 @@ Route::post('/formCommentaire', [CommentaireController::class, 'ajoutCom']);
 Route::get('/allCommentaire', [CommentaireController::class, 'listeCommentaireOk']);
 Route::get('/', [CommentaireController::class, 'dixDerCom']);
 
+Route::get('/service', [ServiceController::class, 'service']);
+
+Route::get('/animaux', [AnimalController::class, 'animal']);
+Route::get('/detailAnimaux/{id}', [AnimalController::class, 'detailAnimal']);
+
+Route::get('/deconnexion', [UserController::class, 'deconnexion']);
+
+
+
+
 Route::get('/gestionCommentaire', [CommentaireController::class, 'gestionCom']);
 Route::get('/deleteCom/{id}', [CommentaireController::class, 'deleteCom']);
 Route::get('/deleteCom2/{id}', [CommentaireController::class, 'deleteCom2']);
@@ -36,8 +47,6 @@ Route::get('/modifEmploye/{id}', [UserController::class, 'modifEmploye']);
 Route::post('/modifEmploye/{id}', [UserController::class, 'modifUser']);
 Route::get('/effacerEmploye/{id}', [UserController::class, 'effacerEmploye']);
 
-Route::get('/deconnexion', [UserController::class, 'deconnexion']);
-
 Route::get('/gestionService', [ServiceController::class, 'listeService']);
 Route::get('/ajoutService', [ServiceController::class, 'formCreerService']);
 Route::post('/ajoutService', [ServiceController::class, 'creerService']);
@@ -45,10 +54,12 @@ Route::get('/modifService/{id}', [ServiceController::class, 'formModifService'])
 Route::post('/modifService/{id}', [ServiceController::class, 'modifService']);
 Route::get('/effacerService/{id}', [ServiceController::class, 'deleteService']);
 
-
-Route::get('/service', [ServiceController::class, 'service']);
-
-
+Route::get('/gestionAnimaux', [AnimalController::class, 'listeAnimaux']);
+Route::get('/ajoutAnimaux', [AnimalController::class, 'formCreerAnimaux']);
+Route::post('/ajoutAnimaux', [AnimalController::class, 'creerAnimaux']);
+Route::get('/modifAnimaux/{id}', [AnimalController::class, 'formModifAnimaux']);
+Route::post('/modifAnimaux/{id}', [AnimalController::class, 'modifAnimaux']);
+Route::get('/effacerAnimaux/{id}', [AnimalController::class, 'deleteAnimaux']);
 
 
 
