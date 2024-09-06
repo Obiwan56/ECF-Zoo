@@ -46,7 +46,7 @@ Route::post('/modifService/{id}', [ServiceController::class, 'modifService']);
 Route::get('/effacerService/{id}', [ServiceController::class, 'deleteService']);
 
 
-
+Route::get('/service', [ServiceController::class, 'service']);
 
 
 
