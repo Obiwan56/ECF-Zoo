@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('race');
             $table->string('prenom');
-            $table->string('etat');
+            $table->text('etat');
             $table->string('img1');
             $table->string('img2')->nullable();
             $table->string('img3')->nullable();

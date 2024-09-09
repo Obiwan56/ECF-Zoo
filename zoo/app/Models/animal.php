@@ -12,6 +12,10 @@ class Animal extends Model
         'prenom',
         'etat',
         'img1',
+        'img2',
+        'img3',
+        'img4',
+        'img5',
         'habitat_id'
     ];
     public function habitat()

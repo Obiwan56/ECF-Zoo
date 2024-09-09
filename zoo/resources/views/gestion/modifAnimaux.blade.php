@@ -97,7 +97,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary mt-4">Modifier l'animal</button>
-            <a href="/gestionanimal" class="btn btn-primary mt-4">Retour</a>
+            <a href="/gestionAnimaux" class="btn btn-primary mt-4">Retour</a>
 
         </div>
 

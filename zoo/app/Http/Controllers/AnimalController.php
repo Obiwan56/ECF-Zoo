@@ -54,6 +54,8 @@ class AnimalController extends Controller
             'img5' => $cheminimg5,
         ]);
 
+        // dd($request->all());
+
         return redirect('/gestionAnimaux')->with('status', 'Animaux ajouté avec succès');
     }
 

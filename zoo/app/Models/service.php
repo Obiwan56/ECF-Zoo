@@ -12,5 +12,7 @@ class service extends Model
         'nom',
         'description',
         'img1',
+        'img2',
+        'img3',
     ];
 }

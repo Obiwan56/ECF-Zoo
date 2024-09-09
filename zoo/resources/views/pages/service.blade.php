@@ -22,9 +22,9 @@
                     <div class="row row-cols-2 align-items-center">
                         <div class="col">
                             <p class="pcarrosserie">{{ $service->description }}</p>
-                            <div class="bouton p-4">
+                            {{-- <div class="bouton p-4">
                                 <a href="/contact" class="btn btn-primary">Contactez-nous</a>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="col">
                             <div id="carouselExampleInterval{{ $service->id }}" class="carousel slide"
