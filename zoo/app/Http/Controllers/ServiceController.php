@@ -128,7 +128,3 @@ class ServiceController extends Controller
         return redirect('/gestionService')->with('status', 'Service supprimé avec succès');
     }
 }
-
-
-
-// verification controller service modif et effacer PHOTO
