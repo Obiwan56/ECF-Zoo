@@ -79,7 +79,7 @@ class AnimalController extends Controller
     public function formModifAnimaux($id)
     {
         $animals = Animal::find($id);
-        return view('gestion.modifanimaux', compact('animals'));
+        return view('gestion.modifAnimaux', compact('animals'));
     }
 
 
@@ -132,7 +132,7 @@ class AnimalController extends Controller
 
         $animal->save();
 
-        return redirect('/gestionAnimaaux')->with('status', 'Animal modifié avec succès');
+        return redirect('/gestionAnimaux')->with('status', 'Animal modifié avec succès');
     }
 
 
@@ -140,30 +140,23 @@ class AnimalController extends Controller
     {
         $animal = Animal::find($id);
 
-        if ($animal->img1) {
-            Storage::disk('public')->delete($animal->img1);
+        if (!$animal) {
+            return redirect('/gestionAnimaux')->with('error', 'Animal non trouvé.');
         }
 
-        if ($animal->img2) {
-            Storage::disk('public')->delete($animal->img2);
-        }
+        $images = ['img1', 'img2', 'img3', 'img4', 'img5'];
 
-        if ($animal->img3) {
-            Storage::disk('public')->delete($animal->img3);
-        }
-
-        if ($animal->img4) {
-            Storage::disk('public')->delete($animal->img4);
-        }
-
-        if ($animal->img5) {
-            Storage::disk('public')->delete($animal->img5);
+        foreach ($images as $img) {
+            if ($animal->$img) {
+                Storage::disk('public')->delete($animal->$img);
+            }
         }
 
         $animal->delete();
 
-        return redirect('/gestionanimal')->with('status', 'animal supprimé avec succès');
+        return redirect('/gestionAnimaux')->with('status', 'Animal supprimé avec succès');
     }
+
 
 
     public function detailAnimal($id)

@@ -34,7 +34,7 @@
                             <td class="d-none d-lg-table-cell">{{ $animal->prenom }}</td>
                             <td class="d-none d-lg-table-cell">{{ $animal->etat }}</td>
                             <td>
-                                <a href="/modifanimaux/{{ $animal->id }}" class="btn btn-primary">Modifier</a>
+                                <a href="/modifAnimaux/{{ $animal->id }}" class="btn btn-primary">Modifier</a>
                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                     data-bs-target="#idmodal_{{ $animal->id }}">Supprimer</button>
                             </td>
@@ -56,7 +56,7 @@
                                     <div class="modal-footer m-4">
                                         <button type="button" class="btn btn-success" data-bs-dismiss="modal"
                                             aria-label="close">Fermer</button>
-                                        <a href="/effaceranimal/{{ $animal->id }}" class="btn btn-warning">Supprimer</a>
+                                        <a href="/effacerAnimaux/{{ $animal->id }}" class="btn btn-warning">Supprimer</a>
                                     </div>
                                 </div>
                             </div>

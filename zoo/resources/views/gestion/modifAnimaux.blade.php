@@ -96,7 +96,7 @@
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-primary mt-4">Modifier le animal</button>
+            <button type="submit" class="btn btn-primary mt-4">Modifier l'animal</button>
             <a href="/gestionanimal" class="btn btn-primary mt-4">Retour</a>
 
         </div>

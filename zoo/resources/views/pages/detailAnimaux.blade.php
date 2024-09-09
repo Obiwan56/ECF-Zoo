@@ -13,13 +13,13 @@
         <div class="row">
             <div class="col-md-6">
                 <h1 class="text-center fw-bold">{{ $animal->race }} {{ $animal->prenom }}</h1>
-                <img id="imagePrincipale" src="{{ asset($animal->img1) }}" class="d-block w-100" alt="...">
+                <img id="imagePrincipale" src="{{ asset('storage/' . $animal->img1) }}" class="d-block w-100" alt="...">
                 <!-- Galerie d'images -->
                 <div class="row mt-3 galerie-images">
-                    @for ($i = 1; $i <= 10; $i++)
+                    @for ($i = 1; $i <= 5; $i++)
                         @if (!empty($animal["img$i"]))
                             <div class="col-md-4">
-                                <img src="{{ asset($animal["img$i"]) }}" class="img-thumbnail miniature"
+                                <img src="{{ asset('storage/' . $animal["img$i"]) }}" class="img-thumbnail miniature"
                                     alt="...">
                             </div>
                         @endif
