@@ -45,7 +45,7 @@ class User2Request extends FormRequest
             'email.required' => 'Veuillez entrer une adresse email',
 
             'password.min' => 'Le mot de passe doit faire au minimum 8 caractères',
-            'password.regex' => 'Le mot de passe doit contenir au moins 1 chiffre et 1 caractère spécial et une majuscule',
+            'password.regex' => 'Le mot de passe doit contenir au moins 1 chiffre, 1 caractère spécial et une Majuscule',
         ];
     }
 }

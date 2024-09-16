@@ -170,4 +170,3 @@ class AnimalController extends Controller
 
 
 
-//Regler pb chemin img puis tester toutes les fonctions!!!!

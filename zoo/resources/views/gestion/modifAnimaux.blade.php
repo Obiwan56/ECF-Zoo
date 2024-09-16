@@ -73,7 +73,7 @@
             </div>
 
             <div class="form-group">
-                <label for="img4">Photo 3</label>
+                <label for="img4">Photo 4</label>
                 <input type="file" name="img4" id="img4" class="form-control">
                 <input type="hidden" name="imgage_old" value="{{ $animals->img4 }}">
                 @if ($animals->img4)
@@ -85,7 +85,7 @@
             </div>
 
             <div class="form-group">
-                <label for="img5">Photo 3</label>
+                <label for="img5">Photo 5</label>
                 <input type="file" name="img5" id="img5" class="form-control">
                 <input type="hidden" name="imgage_old" value="{{ $animals->img5 }}">
                 @if ($animals->img5)

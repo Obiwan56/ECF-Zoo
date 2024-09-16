@@ -54,6 +54,7 @@
 
                                 <li><a class="dropdown-item" href="/gestionVehicule">Gestion des messages</a></li>
                                 <li><a class="dropdown-item" href="/gestionAnimaux">Gestion des animaux</a></li>
+                                <li><a class="dropdown-item" href="/gestionHabitat">Gestion des Habitats</a></li>
                                 <li><a class="dropdown-item" href="/gestionSante">Gestion de la santé des animaux</a></li>
                             </ul>
                         </li>
@@ -69,6 +70,8 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
                             <li class="nav-item"> <a class="nav-link" href="/animaux">Les animaux </a></li>
+
+                            <li class="nav-item"> <a class="nav-link" href="/habitat">Leurs maisons </a></li>
 
                             <li class="nav-item"> <a class="nav-link" href="/service">Les Services du parc </a></li>
 

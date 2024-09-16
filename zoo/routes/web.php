@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\CommentaireController;
+use App\Http\Controllers\HabitatController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
@@ -29,8 +30,10 @@ Route::get('/service', [ServiceController::class, 'service']);
 Route::get('/animaux', [AnimalController::class, 'animal']);
 Route::get('/detailAnimaux/{id}', [AnimalController::class, 'detailAnimal']);
 
-Route::get('/deconnexion', [UserController::class, 'deconnexion']);
+Route::get('/habitat', [HabitatController::class, 'habitat']);
+Route::get('/detailHabitat/{id}', [HabitatController::class, 'detailHabitat']);
 
+Route::get('/deconnexion', [UserController::class, 'deconnexion']);
 
 
 
@@ -61,7 +64,12 @@ Route::get('/modifAnimaux/{id}', [AnimalController::class, 'formModifAnimaux']);
 Route::post('/modifAnimaux/{id}', [AnimalController::class, 'modifAnimaux']);
 Route::get('/effacerAnimaux/{id}', [AnimalController::class, 'deleteAnimaux']);
 
-
+Route::get('/gestionHabitat', [HabitatController::class, 'listeHabitat']);
+Route::get('/ajoutHabitat', [HabitatController::class, 'formCreerHabitat']);
+Route::post('/ajoutHabitat', [HabitatController::class, 'creerHabitat']);
+Route::get('/modifHabitat/{id}', [HabitatController::class, 'formModifHabitat']);
+Route::post('/modifHabitat/{id}', [HabitatController::class, 'modifHabitat']);
+Route::get('/effacerHabitat/{id}', [HabitatController::class, 'deleteHabitat']);
 
 
 
