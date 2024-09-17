@@ -32,7 +32,7 @@
                         <tr>
                             <td class="d-none d-lg-table-cell">{{ $animal->race }}</td>
                             <td class="d-none d-lg-table-cell">{{ $animal->prenom }}</td>
-                            <td class="d-none d-lg-table-cell">{{ $animal->etat }}</td>
+                            <td class="d-none d-lg-table-cell">{{ Str::limit($animal->etat, 50) }}</td>
                             <td>
                                 <a href="/modifAnimaux/{{ $animal->id }}" class="btn btn-primary">Modifier</a>
                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"

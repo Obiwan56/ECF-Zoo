@@ -6,84 +6,51 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AnimauxRequest;
 use App\Http\Requests\AnimauxRequest2;
 use App\Models\Animal;
+use App\Models\Habitat; // Importer le modèle Habitat
 use Illuminate\Support\Facades\Storage;
 
 class AnimalController extends Controller
 {
     public function creerAnimaux(AnimauxRequest $request)
     {
-        $cheminimg1 = '';
-        $cheminimg2 = '';
-        $cheminimg3 = '';
-        $cheminimg4 = '';
-        $cheminimg5 = '';
-
-        if ($request->hasFile('img1')) {
-            $cheminimg1 = $request->file('img1')->store('Animaux', 'public');
+        // Gestion simplifiée des images
+        $images = [];
+        for ($i = 1; $i <= 5; $i++) {
+            $images["img$i"] = $request->hasFile("img$i") ? $request->file("img$i")->store('Animaux', 'public') : '';
         }
 
-        if ($request->hasFile('img2')) {
-            $cheminimg2 = $request->file('img2')->store('Animaux', 'public');
-        }
+        $data = $request->only(['race', 'prenom', 'etat', 'habitat_id']);
+        $data = array_merge($data, $images);
 
-        if ($request->hasFile('img3')) {
-            $cheminimg3 = $request->file('img3')->store('Animaux', 'public');
-        }
-
-        if ($request->hasFile('img4')) {
-            $cheminimg4 = $request->file('img4')->store('Animaux', 'public');
-        }
-
-        if ($request->hasFile('img5')) {
-            $cheminimg5 = $request->file('img5')->store('Animaux', 'public');
-        }
-
-        $race = $request->input('race');
-        $prenom = $request->input('prenom');
-        $etat = $request->input('etat');
-
-        Animal::create([
-            'race' => $race,
-            'prenom' => $prenom,
-            'etat' => $etat,
-
-            'img1' => $cheminimg1,
-            'img2' => $cheminimg2,
-            'img3' => $cheminimg3,
-            'img4' => $cheminimg4,
-            'img5' => $cheminimg5,
-        ]);
-
-        // dd($request->all());
+        Animal::create($data);
 
         return redirect('/gestionAnimaux')->with('status', 'Animaux ajouté avec succès');
     }
 
     public function listeAnimaux()
     {
-        $animals = Animal::all();
+        $animals = Animal::with('habitat')->get(); // Inclure les habitats liés
         return view('gestion.gestionAnimaux', compact('animals'));
     }
 
     public function formCreerAnimaux()
     {
-        return view('gestion.ajoutAnimaux');
+        $habitats = Habitat::all(); // Récupérer tous les habitats
+        return view('gestion.ajoutAnimaux', compact('habitats'));
     }
-
 
     public function animal()
     {
-        $animals = Animal::all();
-
+        $animals = Animal::with('habitat')->get(); // Inclure l'habitat dans la requête
         return view('pages.animaux', compact('animals'));
     }
 
     public function formModifAnimaux($id)
     {
-        $animals = Animal::find($id);
-        return view('gestion.modifAnimaux', compact('animals'));
+        $animals = Animal::find($id); // Trouver l'animal par ID
+        $habitats = Habitat::all(); // Récupérer tous les habitats
+        return view('gestion.modifAnimaux', compact('animals', 'habitats')); // Passer les données à la vue
     }
-
 
     public function modifAnimaux($id, AnimauxRequest2 $request)
     {
@@ -92,51 +59,22 @@ class AnimalController extends Controller
         $animal->race = $request->input('race');
         $animal->prenom = $request->input('prenom');
         $animal->etat = $request->input('etat');
+        $animal->habitat_id = $request->input('habitat_id'); // Mise à jour de l'habitat
 
-        if ($request->hasFile('img1')) {
-            // Supprimer l'ancienne image si elle existe
-            if ($animal->img1) {
-                Storage::disk('public')->delete($animal->img1);
+        // Gestion des images
+        for ($i = 1; $i <= 5; $i++) {
+            if ($request->hasFile("img$i")) {
+                if ($animal->{"img$i"}) {
+                    Storage::disk('public')->delete($animal->{"img$i"}); // Supprimer l'ancienne image
+                }
+                $animal->{"img$i"} = $request->file("img$i")->store('Animaux', 'public'); // Stocker la nouvelle image
             }
-            // Stocker la nouvelle image
-            $animal->img1 = $request->file('img1')->store('Animaux', 'public');
         }
-
-        if ($request->hasFile('img2')) {
-            if ($animal->img2) {
-                Storage::disk('public')->delete($animal->img2);
-            }
-            $animal->img2 = $request->file('img2')->store('Animaux', 'public');
-        }
-
-        if ($request->hasFile('img3')) {
-            if ($animal->img3) {
-                Storage::disk('public')->delete($animal->img3);
-            }
-            $animal->img3 = $request->file('img3')->store('Animaux', 'public');
-        }
-
-        if ($request->hasFile('img4')) {
-            if ($animal->img4) {
-                Storage::disk('public')->delete($animal->img4);
-            }
-            $animal->img4 = $request->file('img4')->store('Animaux', 'public');
-        }
-
-
-        if ($request->hasFile('img5')) {
-            if ($animal->img5) {
-                Storage::disk('public')->delete($animal->img5);
-            }
-            $animal->img5 = $request->file('img5')->store('Animaux', 'public');
-        }
-
 
         $animal->save();
 
         return redirect('/gestionAnimaux')->with('status', 'Animal modifié avec succès');
     }
-
 
     public function deleteAnimaux($id)
     {
@@ -146,11 +84,10 @@ class AnimalController extends Controller
             return redirect('/gestionAnimaux')->with('error', 'Animal non trouvé.');
         }
 
-        $images = ['img1', 'img2', 'img3', 'img4', 'img5'];
-
-        foreach ($images as $img) {
-            if ($animal->$img) {
-                Storage::disk('public')->delete($animal->$img);
+        // Suppression des images liées
+        for ($i = 1; $i <= 5; $i++) {
+            if ($animal->{"img$i"}) {
+                Storage::disk('public')->delete($animal->{"img$i"});
             }
         }
 
@@ -159,14 +96,9 @@ class AnimalController extends Controller
         return redirect('/gestionAnimaux')->with('status', 'Animal supprimé avec succès');
     }
 
-
-
     public function detailAnimal($id)
     {
-        $animal = Animal::findOrFail($id);
+        $animal = Animal::with('habitat')->findOrFail($id); // Inclure les informations de l'habitat
         return view('pages.detailAnimaux', compact('animal'));
     }
 }
-
-
-

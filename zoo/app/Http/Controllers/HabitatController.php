@@ -5,100 +5,65 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\HabitatRequest;
 use App\Http\Requests\HabitatRequest2;
-use App\Models\habitat;
+use App\Models\Habitat; // Changer la première lettre en majuscule pour respecter la convention
 use Illuminate\Support\Facades\Storage;
 
 class HabitatController extends Controller
 {
-    public function creerhabitat(HabitatRequest $request)
+    public function creerHabitat(HabitatRequest $request)
     {
-        $cheminimg1 = '';
-        $cheminimg2 = '';
-        $cheminimg3 = '';
-
-        if ($request->hasFile('img1')) {
-            $cheminimg1 = $request->file('img1')->store('habitat', 'public');
+        // Gestion simplifiée des images
+        $images = [];
+        for ($i = 1; $i <= 3; $i++) {
+            $images["img$i"] = $request->hasFile("img$i") ? $request->file("img$i")->store('habitat', 'public') : '';
         }
 
-        if ($request->hasFile('img2')) {
-            $cheminimg2 = $request->file('img2')->store('habitat', 'public');
-        }
+        $data = $request->only(['nom', 'description']);
+        $data = array_merge($data, $images);
 
-        if ($request->hasFile('img3')) {
-            $cheminimg3 = $request->file('img3')->store('habitat', 'public');
-        }
+        Habitat::create($data);
 
-        $nom = $request->input('nom');
-        $description = $request->input('description');
-
-        habitat::create([
-            'nom' => $nom,
-            'description' => $description,
-
-            'img1' => $cheminimg1,
-            'img2' => $cheminimg2,
-            'img3' => $cheminimg3,
-        ]);
-
-        // dd($request->all());
-
-        return redirect('/gestionHabitat')->with('status', 'habitat ajouté avec succès');
+        return redirect('/gestionHabitat')->with('status', 'Habitat ajouté avec succès');
     }
 
-    public function listehabitat()
+    public function listeHabitat()
     {
-        $habitats = habitat::all();
+        $habitats = Habitat::all();
         return view('gestion.gestionHabitat', compact('habitats'));
     }
 
-    public function formCreerhabitat()
+    public function formCreerHabitat()
     {
         return view('gestion.ajoutHabitat');
     }
 
-
     public function habitat()
     {
-        $habitats = habitat::all();
-
+        $habitats = Habitat::all();
         return view('pages.habitat', compact('habitats'));
     }
 
-    public function formModifhabitat($id)
+    public function formModifHabitat($id)
     {
-        $habitats = habitat::find($id);
-        return view('gestion.modifHabitat', compact('habitats'));
+        $habitat = Habitat::find($id);
+        return view('gestion.modifHabitat', compact('habitat'));
     }
 
-
-    public function modifhabitat($id, HabitatRequest2 $request)
+    public function modifHabitat($id, HabitatRequest2 $request)
     {
-        $habitat = habitat::findOrFail($id);
+        $habitat = Habitat::findOrFail($id);
 
         $habitat->nom = $request->input('nom');
         $habitat->description = $request->input('description');
 
-        if ($request->hasFile('img1')) {
-            // Supprimer l'ancienne image si elle existe
-            if ($habitat->img1) {
-                Storage::disk('public')->delete($habitat->img1);
+        // Gestion simplifiée des images
+        for ($i = 1; $i <= 3; $i++) {
+            if ($request->hasFile("img$i")) {
+                if ($habitat->{"img$i"}) {
+                    Storage::disk('public')->delete($habitat->{"img$i"});
+                }
+                $habitat->{"img$i"} = $request->file("img$i")->store('habitat', 'public');
             }
-            // Stocker la nouvelle image
-            $habitat->img1 = $request->file('img1')->store('habitat', 'public');
-        }
-
-        if ($request->hasFile('img2')) {
-            if ($habitat->img2) {
-                Storage::disk('public')->delete($habitat->img2);
-            }
-            $habitat->img2 = $request->file('img2')->store('habitat', 'public');
-        }
-
-        if ($request->hasFile('img3')) {
-            if ($habitat->img3) {
-                Storage::disk('public')->delete($habitat->img3);
-            }
-            $habitat->img3 = $request->file('img3')->store('habitat', 'public');
         }
 
         $habitat->save();
@@ -106,20 +71,18 @@ class HabitatController extends Controller
         return redirect('/gestionHabitat')->with('status', 'Habitat modifié avec succès');
     }
 
-
-    public function deletehabitat($id)
+    public function deleteHabitat($id)
     {
-        $habitat = habitat::find($id);
+        $habitat = Habitat::find($id);
 
         if (!$habitat) {
             return redirect('/gestionHabitat')->with('error', 'Habitat non trouvé.');
         }
 
-        $images = ['img1', 'img2', 'img3'];
-
-        foreach ($images as $img) {
-            if ($habitat->$img) {
-                Storage::disk('public')->delete($habitat->$img);
+        // Suppression des images liées
+        for ($i = 1; $i <= 3; $i++) {
+            if ($habitat->{"img$i"}) {
+                Storage::disk('public')->delete($habitat->{"img$i"});
             }
         }
 
@@ -128,11 +91,9 @@ class HabitatController extends Controller
         return redirect('/gestionHabitat')->with('status', 'Habitat supprimé avec succès');
     }
 
-
-
-    public function detailhabitat($id)
+    public function detailHabitat($id)
     {
-        $habitat = habitat::findOrFail($id);
+        $habitat = Habitat::findOrFail($id);
         return view('pages.detailHabitat', compact('habitat'));
     }
 }

@@ -34,6 +34,21 @@
                 @enderror
             </div>
 
+            <div class="mb-3">
+                <label for="habitat_id" class="form-label">Habitat</label>
+                <select id="habitat_id" name="habitat_id" class="form-control">
+                    <option value="">Sélectionnez un habitat</option>
+                    @foreach ($habitats as $habitat)
+                        <option value="{{ $habitat->id }}" {{ old('habitat_id') == $habitat->id ? 'selected' : '' }}>
+                            {{ $habitat->nom }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('habitat_id')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+
             <div class="form-group">
                 <label for="img1">Photo</label>
                 <input type="file" name="img1" id="img1" class="form-control">

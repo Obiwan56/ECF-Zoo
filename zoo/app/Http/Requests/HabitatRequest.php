@@ -22,7 +22,7 @@ class HabitatRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nom' => 'required|min:2|max:20',
+            'nom' => 'required|min:2|max:50',
             'description' => 'required|min:2|max:10000',
             'img1' => 'required|mimes:jpg,jpeg,png,webp|max:10000',
             'img2' => 'nullable|mimes:jpg,jpeg,png,webp|max:10000',
@@ -33,9 +33,9 @@ class HabitatRequest extends FormRequest
     public function messages()
     {
         return [
-            'nom.required' => 'Veuillez entrer une nom',
+            'nom.required' => 'Veuillez entrer un nom',
             'nom.min' => '2 caractères minimum',
-            'nom.max' => '20 caractères maximum',
+            'nom.max' => '50 caractères maximum',
             'description.required' => "Veuillez entrer une description pour l'habitat",
             'description.min' => '2 caractères minimum',
             'description.max' => '10 000 caractères maximum',

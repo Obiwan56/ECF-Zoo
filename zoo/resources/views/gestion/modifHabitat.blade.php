@@ -5,13 +5,13 @@
 
         @csrf
 
-        <input type="text" name="id" style="display: none" value="{{ $habitats->id }}">
+        <input type="text" name="id" style="display: none" value="{{ $habitat->id }}">
 
         <div class="container p-4">
             <h2 class="text-primary">Modifier un habitat</h2>
             <div class="mb-3">
                 <label for="nom" class="form-label">nom</label>
-                <input type="text" class="form-control" id="nom" name="nom" value="{{ $habitats->nom }}">
+                <input type="text" class="form-control" id="nom" name="nom" value="{{ $habitat->nom }}">
                 @error('nom')
                     <span class="text-danger">
                         {{ $message }}</span>
@@ -20,7 +20,7 @@
 
             <div class="mb-3">
                 <label for="description" class="form-label">Rapport sur l'habitat</label>
-                <textarea id="description" class="form-control" name="description">{{ $habitats->description }}</textarea>
+                <textarea id="description" class="form-control" name="description">{{ $habitat->description }}</textarea>
                 @error('description')
                     <span class="text-danger">
                         {{ $message }}</span>
@@ -30,9 +30,9 @@
             <div class="form-group">
                 <label for="img1">Photo 1</label>
                 <input type="file" name="img1" id="img1" class="form-control">
-                <input type="hidden" name="imgage_old" value="{{ $habitats->img1 }}">
-                @if ($habitats->img1)
-                    <img src="{{ asset('storage/' . $habitats->img1) }}" alt="" style="max-width: 150px;">
+                <input type="hidden" name="imgage_old" value="{{ $habitat->img1 }}">
+                @if ($habitat->img1)
+                    <img src="{{ asset('storage/' . $habitat->img1) }}" alt="" style="max-width: 150px;">
                 @endif
                 @error('img1')
                     <span class="text-danger">{{ $message }}</span>
@@ -42,9 +42,9 @@
             <div class="form-group">
                 <label for="img2">Photo 2</label>
                 <input type="file" name="img2" id="img2" class="form-control">
-                <input type="hidden" name="imgage_old" value="{{ $habitats->img2 }}">
-                @if ($habitats->img2)
-                    <img src="{{ asset('storage/' . $habitats->img2) }}" alt="" style="max-width: 150px;">
+                <input type="hidden" name="imgage_old" value="{{ $habitat->img2 }}">
+                @if ($habitat->img2)
+                    <img src="{{ asset('storage/' . $habitat->img2) }}" alt="" style="max-width: 150px;">
                 @endif
                 @error('img2')
                     <span class="text-danger">{{ $message }}</span>
@@ -54,9 +54,9 @@
             <div class="form-group">
                 <label for="img3">Photo 3</label>
                 <input type="file" name="img3" id="img3" class="form-control">
-                <input type="hidden" name="imgage_old" value="{{ $habitats->img3 }}">
-                @if ($habitats->img3)
-                    <img src="{{ asset('storage/' . $habitats->img3) }}" alt="" style="max-width: 150px;">
+                <input type="hidden" name="imgage_old" value="{{ $habitat->img3 }}">
+                @if ($habitat->img3)
+                    <img src="{{ asset('storage/' . $habitat->img3) }}" alt="" style="max-width: 150px;">
                 @endif
                 @error('img3')
                     <span class="text-danger">{{ $message }}</span>

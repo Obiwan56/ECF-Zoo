@@ -22,15 +22,15 @@
                 <thead>
                     <tr>
                         <th scope>Nom</th>
-                        <th scope>Description</th>
+                        <th scope class="d-none d-lg-table-cell">Description</th>
                         <th scope>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($habitats as $habitat)
                         <tr>
-                            <td class="d-none d-lg-table-cell">{{ $habitat->nom }}</td>
-                            <td class="d-none d-lg-table-cell">{{ $habitat->description }}</td>
+                            <td>{{ $habitat->nom }}</td>
+                            <td class="d-none d-lg-table-cell">{{ Str::limit($habitat->description, 50) }}</td>
                             <td>
                                 <a href="/modifHabitat/{{ $habitat->id }}" class="btn btn-primary">Modifier</a>
                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
