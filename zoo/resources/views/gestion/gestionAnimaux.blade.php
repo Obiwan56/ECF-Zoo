@@ -21,9 +21,9 @@
                 <caption class="caption">Liste des Animaux</caption>
                 <thead>
                     <tr>
-                        <th scope>Race</th>
+                        <th scope class="d-none d-lg-table-cell">Race</th>
                         <th scope>Prénom</th>
-                        <th scope>Etat</th>
+                        <th scope class="d-none d-lg-table-cell">Etat</th>
                         <th scope>Action</th>
                     </tr>
                 </thead>
@@ -31,7 +31,7 @@
                     @foreach ($animals as $animal)
                         <tr>
                             <td class="d-none d-lg-table-cell">{{ $animal->race }}</td>
-                            <td class="d-none d-lg-table-cell">{{ $animal->prenom }}</td>
+                            <td>{{ $animal->prenom }}</td>
                             <td class="d-none d-lg-table-cell">{{ Str::limit($animal->etat, 50) }}</td>
                             <td>
                                 <a href="/modifAnimaux/{{ $animal->id }}" class="btn btn-primary">Modifier</a>

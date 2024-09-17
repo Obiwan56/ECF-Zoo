@@ -24,8 +24,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-
-                {{-- <ul class="navbar-nav">
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    {{-- <ul class="navbar-nav">
                         @auth
                             <li class="nav-item">
                                 <span class="nav-link dropdown-toggle text-success" href="#" role="button"
@@ -39,49 +39,53 @@
 
 
 
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Gestion
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/gestionEmploye">Gestion des employé(e)s</a></li>
-                            <li><a class="dropdown-item" href="/gestionCommentaire">Gestion des commentaires</a></li>
-                            <li><a class="dropdown-item" href="/gestionService">Gestion des services</a></li>
-
-                            <li><a class="dropdown-item" href="/gestionVehicule">Gestion des messages</a></li>
-                            <li><a class="dropdown-item" href="/gestionAnimaux">Gestion des animaux</a></li>
-                            <li><a class="dropdown-item" href="/gestionHabitat">Gestion des Habitats</a></li>
-                            <li><a class="dropdown-item" href="/gestionSante">Gestion de la santé des animaux</a></li>
-                        </ul>
-                    </li>
-
-
-
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Accueil</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Gestion
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/gestionEmploye">Gestion des employé(e)s</a></li>
+                                <li><a class="dropdown-item" href="/gestionCommentaire">Gestion des commentaires</a>
+                                </li>
+                                <li><a class="dropdown-item" href="/gestionService">Gestion des services</a></li>
+
+                                <li><a class="dropdown-item" href="/gestionVehicule">Gestion des messages</a></li>
+                                <li><a class="dropdown-item" href="/gestionAnimaux">Gestion des animaux</a></li>
+                                <li><a class="dropdown-item" href="/gestionHabitat">Gestion des Habitats</a></li>
+                                <li><a class="dropdown-item" href="/gestionSante">Gestion de la santé des animaux</a>
+                                </li>
+                            </ul>
                         </li>
 
-                        <li class="nav-item"> <a class="nav-link" href="/animaux">Les animaux </a></li>
 
-                        <li class="nav-item"> <a class="nav-link" href="/habitat">Leurs maisons </a></li>
 
-                        <li class="nav-item"> <a class="nav-link" href="/service">Les Services du parc </a></li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Accueil</a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/connexion">Connexion</a>
-                        </li>
+                            <li class="nav-item"> <a class="nav-link" href="/animaux">Les animaux </a></li>
+
+                            <li class="nav-item"> <a class="nav-link" href="/habitat">Leurs maisons </a></li>
+
+                            <li class="nav-item"> <a class="nav-link" href="/service">Les Services du parc </a></li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/contact">Contact</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/connexion">Connexion</a>
+                            </li>
+
 
                     </ul>
-                </ul>
+                </div>
             </div>
+
         </nav>
     </header>
 
