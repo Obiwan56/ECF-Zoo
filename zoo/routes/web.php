@@ -30,6 +30,12 @@ Route::get('/service', [ServiceController::class, 'service']);
 Route::get('/animaux', [AnimalController::class, 'animal']);
 Route::get('/detailAnimaux/{id}', [AnimalController::class, 'detailAnimal']);
 
+Route::get('/habitat/{id}', [HabitatController::class, 'detailHabitat'])->name('detailHabitat');
+
+Route::get('/animal/{id}', [AnimalController::class, 'show'])->name('animal');
+
+
+
 Route::get('/habitat', [HabitatController::class, 'habitat']);
 Route::get('/detailHabitat/{id}', [HabitatController::class, 'detailHabitat']);
 

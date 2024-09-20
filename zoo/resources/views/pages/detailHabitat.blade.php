@@ -27,19 +27,39 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <h3>Voilà ou ils habitent</h3>
-
+                <h3>Voilà où ils habitent</h3>
                 <div class="container pcarrosserie">{{ $habitat->description }}</div>
                 <br>
 
+                <!-- Liste des animaux qui habitent ici -->
+                @if ($habitat->animals->isNotEmpty())
+                    <h4>Animaux vivant ici</h4>
+                    <ul>
+                        @foreach ($habitat->animals as $animal)
+                            <li>
+                                <a href="{{ route('animal', $animal->id) }}">
+                                    {{ $animal->prenom }} ({{ $animal->race }})
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <p>Aucun animal ne vit actuellement dans cet habitat.</p>
+                @endif
 
             </div>
         </div>
 
-        <a href="/habitat" class="btn btn-primary">Retour à la liste des habitats</a>
+        <!-- Bouton de retour à l'animal si un animal spécifique est affiché -->
+        @if (session('animal_id'))
+            <a href="{{ route('animal.show', session('animal_id')) }}" class="btn btn-secondary mt-4">
+                Retour à l'animal
+            </a>
+        @endif
+
+        <!-- Bouton pour revenir à la liste des habitats -->
+        <a href="/habitat" class="btn btn-primary mt-4">Retour à la liste des habitats</a>
     </div>
-
-
 
     <script>
         // Sélection des miniatures

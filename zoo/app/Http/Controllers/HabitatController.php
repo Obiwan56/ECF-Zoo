@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\HabitatRequest;
 use App\Http\Requests\HabitatRequest2;
-use App\Models\Habitat; // Changer la première lettre en majuscule pour respecter la convention
+use App\Models\Animal;
+use App\Models\Habitat;
 use Illuminate\Support\Facades\Storage;
 
 class HabitatController extends Controller
@@ -95,5 +96,16 @@ class HabitatController extends Controller
     {
         $habitat = Habitat::findOrFail($id);
         return view('pages.detailHabitat', compact('habitat'));
+    }
+
+    public function animaux()
+    {
+        return $this->hasMany(Animal::class);
+    }
+
+    public function show($id)
+    {
+        $habitat = Habitat::with('animaux')->findOrFail($id);
+        return view('detailHabitat', compact('habitat'));
     }
 }

@@ -96,9 +96,16 @@ class AnimalController extends Controller
         return redirect('/gestionAnimaux')->with('status', 'Animal supprimé avec succès');
     }
 
-    public function detailAnimal($id)
+    public function show($id)
     {
         $animal = Animal::with('habitat')->findOrFail($id); // Inclure les informations de l'habitat
         return view('pages.detailAnimaux', compact('animal'));
     }
+
+
+    public function habitat()
+    {
+        return $this->belongsTo(Habitat::class);
+    }
+
 }

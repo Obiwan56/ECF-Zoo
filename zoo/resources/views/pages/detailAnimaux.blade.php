@@ -28,18 +28,24 @@
             </div>
             <div class="col-md-6">
                 <h3>Un petit mot sur cette gentille bête</h3>
-
                 <div class="container pcarrosserie">{{ $animal->etat }}</div>
                 <br>
 
+                <!-- Affichage de l'habitat -->
+                @if ($animal->habitat)
+                    <h3>Habitat</h3>
+                    <p>{{ $animal->habitat->nom }}</p>
+                    <img src="{{ asset('storage/' . $animal->habitat->img1) }}" class="d-block w-100 img-thumbnail" alt="Habitat de l'animal">
+                    <a href="{{ route('detailHabitat', $animal->habitat->id) }}" class="btn btn-primary mt-3">Voir l'habitat</a>
+                @else
+                    <p>Aucun habitat trouvé pour cet animal.</p>
+                @endif
 
             </div>
         </div>
 
-        <a href="/animaux" class="btn btn-primary">Retour à la liste des animaux</a>
+        <a href="/animaux" class="btn btn-primary mt-4">Retour à la liste des animaux</a>
     </div>
-
-
 
     <script>
         // Sélection des miniatures
