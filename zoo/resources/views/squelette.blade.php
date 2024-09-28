@@ -56,6 +56,7 @@
                                 <li><a class="dropdown-item" href="/gestionAnimaux">Gestion des animaux</a></li>
                                 <li><a class="dropdown-item" href="/gestionHabitat">Gestion des Habitats</a></li>
                                 <li><a class="dropdown-item" href="/gestionSante">Gestion de la santé des animaux</a>
+                                    <li><a class="dropdown-item" href="/gestionNourriture">Gestion de la nourriture des animaux</a>
                                 </li>
                             </ul>
                         </li>

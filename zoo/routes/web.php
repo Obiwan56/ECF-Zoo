@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\HabitatController;
+use App\Http\Controllers\NourritureController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
@@ -77,7 +78,12 @@ Route::get('/modifHabitat/{id}', [HabitatController::class, 'formModifHabitat'])
 Route::post('/modifHabitat/{id}', [HabitatController::class, 'modifHabitat']);
 Route::get('/effacerHabitat/{id}', [HabitatController::class, 'deleteHabitat']);
 
-
+Route::get('/gestionNourriture', [NourritureController::class, 'listeNourriture']);
+Route::get('/ajoutNourriture', [NourritureController::class, 'formCreerNouriture']);
+Route::post('/ajoutNourriture', [NourritureController::class, 'creerNourriture']);
+Route::get('/modifNourriture/{id}', [NourritureController::class, 'formModifNourriture']);
+Route::post('/modifNourriture/{id}', [NourritureController::class, 'modifNourriture']);
+Route::get('/effacerNourriture/{id}', [NourritureController::class, 'deleteNourriture']);
 
 
 

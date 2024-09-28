@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nourriture_animauxes', function (Blueprint $table) {
+        Schema::create('nourritures', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->string('nourriture');
-            $table->integer('quantite');
-            $table->foreignId('animal_id')->constrained('animals')->onDelete('cascade');  // Clé étrangère vers animals
+            $table->string('aliment');
+            $table->foreignId('animal_id')->constrained('animals')->onDelete('cascade');
 
             $table->timestamps();
+
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nourriture_animauxes');
+        Schema::dropIfExists('nourritures');
     }
 };
