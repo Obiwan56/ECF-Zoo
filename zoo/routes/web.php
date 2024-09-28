@@ -5,6 +5,7 @@ use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\HabitatController;
 use App\Http\Controllers\NourritureController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RepasAnimalController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -85,6 +86,12 @@ Route::get('/modifNourriture/{id}', [NourritureController::class, 'formModifNour
 Route::post('/modifNourriture/{id}', [NourritureController::class, 'modifNourriture']);
 Route::get('/effacerNourriture/{id}', [NourritureController::class, 'deleteNourriture']);
 
+Route::get('/gestionRepasAnimal', [RepasAnimalController::class, 'listeDesRepas']);
+Route::get('/ajoutRepasAnimal', [RepasAnimalController::class, 'formAjoutRepas']);
+Route::post('/ajoutRepasAnimal', [RepasAnimalController::class, 'ajouterRepas']);
+Route::get('/modifRepasAnimal/{id}', [RepasAnimalController::class, 'formModifRepas']);
+Route::post('/modifRepasAnimal/{id}', [RepasAnimalController::class, 'modifRepas']);
+Route::get('/deleteRepas/{id}', [RepasAnimalController::class, 'deleteRepas']);
 
 
 

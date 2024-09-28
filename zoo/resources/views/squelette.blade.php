@@ -55,32 +55,32 @@
                                 <li><a class="dropdown-item" href="/gestionVehicule">Gestion des messages</a></li>
                                 <li><a class="dropdown-item" href="/gestionAnimaux">Gestion des animaux</a></li>
                                 <li><a class="dropdown-item" href="/gestionHabitat">Gestion des Habitats</a></li>
-                                <li><a class="dropdown-item" href="/gestionSante">Gestion de la santé des animaux</a>
-                                    <li><a class="dropdown-item" href="/gestionNourriture">Gestion de la nourriture des animaux</a>
-                                </li>
+                                <li><a class="dropdown-item" href="/gestionRepasAnimal">Gestion des repas des animaux</a>
+                                <li><a class="dropdown-item" href="/gestionNourriture">Gestion des aliments</a></li>
+
                             </ul>
                         </li>
 
 
 
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/">Accueil</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Accueil</a>
+                        </li>
 
-                            <li class="nav-item"> <a class="nav-link" href="/animaux">Les animaux </a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/animaux">Les animaux </a></li>
 
-                            <li class="nav-item"> <a class="nav-link" href="/habitat">Leurs maisons </a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/habitat">Leurs maisons </a></li>
 
-                            <li class="nav-item"> <a class="nav-link" href="/service">Les Services du parc </a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/service">Les Services du parc </a></li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/contact">Contact</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact">Contact</a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/connexion">Connexion</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/connexion">Connexion</a>
+                        </li>
 
 
                     </ul>

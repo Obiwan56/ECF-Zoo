@@ -7,21 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class RepasAnimal extends Model
 {
-    protected $fillable = [
-        'quantite',
-        'observation',
-        'date',
-        'animal_id',
-        'nourriture_id',
-    ];
+    use HasFactory;
 
-    public function animals()
+    protected $fillable = ['quantite', 'observation', 'date', 'animal_id', 'nourriture_id'];
+
+    // Définir la relation avec le modèle Animal
+    public function animal()
     {
-        return $this->hasMany(Animal::class);
+        return $this->belongsTo(Animal::class);
     }
 
-    public function nourritures()
+    // Définir la relation avec le modèle Nourriture
+    public function nourriture()
     {
-        return $this->hasMany(Nourriture::class);
+        return $this->belongsTo(Nourriture::class);
     }
 }

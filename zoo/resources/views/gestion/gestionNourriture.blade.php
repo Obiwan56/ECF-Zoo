@@ -1,7 +1,7 @@
 @extends('squelette')
 
 @section('contenu')
-    <h1 class="text-primary text-center">Gestion de la nourriture donnée aux Animaux du parc</h1>
+    <h1 class="text-primary text-center">Gestion des aliments donnée aux Animaux du parc</h1>
 
     <div class="p-4">
         @if (session('status'))
@@ -11,7 +11,7 @@
         @endif
     </div>
 
-    <div class="container">
+    <div class="p-4">
         <div class="col-xl">
             <div>
                 <a href="/ajoutNourriture">Ajouter un Aliment <i class="bi bi-plus-lg icon2"></i></a>

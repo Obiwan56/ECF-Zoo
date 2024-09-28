@@ -14,8 +14,13 @@ class Nourriture extends Model
         'animal_id',
     ];
 
-    public function animal()
+    public function repas()
     {
-        return $this->belongsTo(Animal::class);
+        return $this->hasMany(RepasAnimal::class);
+    }
+
+    public function animaux()
+    {
+        return $this->belongsToMany(Animal::class, 'animal_nourriture');
     }
 }

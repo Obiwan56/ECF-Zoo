@@ -18,8 +18,14 @@ class Animal extends Model
         'img5',
         'habitat_id'
     ];
-    public function habitat()
+    public function repas()
     {
-        return $this->belongsTo(Habitat::class);
+        return $this->hasMany(RepasAnimal::class);
+    }
+
+
+    public function nourritures()
+    {
+        return $this->belongsToMany(Nourriture::class, 'animal_nourriture');
     }
 }
