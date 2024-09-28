@@ -25,11 +25,12 @@ class AnimauxRequest extends FormRequest
             'race' => 'required|min:2|max:20',
             'prenom' => 'required|min:2|max:20',
             'etat' => 'required|min:2|max:10000',
-            'img1' => 'required|mimes:jpg,jpeg,png,webp|max:10000',
-            'img2' => 'nullable|mimes:jpg,jpeg,png,webp|max:10000',
-            'img3' => 'nullable|mimes:jpg,jpeg,png,webp|max:10000',
-            'img4' => 'nullable|mimes:jpg,jpeg,png,webp|max:10000',
-            'img5' => 'nullable|mimes:jpg,jpeg,png,webp|max:10000',
+            'img1' => 'required|mimes:jpg,jpeg,png,webp,jfif|max:10000',
+            'img2' => 'nullable|mimes:jpg,jpeg,png,webp,jfif|max:10000',
+            'img3' => 'nullable|mimes:jpg,jpeg,png,webp,jfif|max:10000',
+            'img4' => 'nullable|mimes:jpg,jpeg,png,webp,jfif|max:10000',
+            'img5' => 'nullable|mimes:jpg,jpeg,png,webp,jfif|max:10000',
+            'habitat_id' => 'required'
         ];
     }
 
@@ -47,21 +48,22 @@ class AnimauxRequest extends FormRequest
             'etat.max' => '10 000 caractères maximum',
 
             'img1.required' => 'Une image est requise',
-            'img1.mimes' => 'Format jpg, jpeg, png ou webp uniquement',
+            'img1.mimes' => 'Format jpg, jpeg, png ou webp voir jfif uniquement',
             'img1.max' => '10 mo maximum',
 
-            'img2.mimes' => 'Format jpg, jpeg, png ou webp uniquement',
+            'img2.mimes' => 'Format jpg, jpeg, png ou webp voir jfif uniquement',
             'img2.max' => '10 mo maximum',
 
-            'img3.mimes' => 'Format jpg, jpeg, png ou webp uniquement',
+            'img3.mimes' => 'Format jpg, jpeg, png ou webp voir jfif uniquement',
             'img3.max' => '10 mo maximum',
 
-            'img4.mimes' => 'Format jpg, jpeg, png ou webp uniquement',
+            'img4.mimes' => 'Format jpg, jpeg, png ou webp voir jfif uniquement',
             'img4.max' => '10 mo maximum',
 
-            'img5.mimes' => 'Format jpg, jpeg, png ou webp uniquement',
+            'img5.mimes' => 'Format jpg, jpeg, png ou webp voir jfif uniquement',
             'img5.max' => '10 mo maximum',
 
+            'habitat_id.required' => 'Veuillez choisir un Habitat pour l\'animal ou le créer s\'il n\'existe pas'
 
         ];
     }

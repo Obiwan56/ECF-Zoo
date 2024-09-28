@@ -18,11 +18,11 @@
         @endif
     </div>
 
-    <div class="container p-4">
+    <div class="p-4">
         <a href="/listeComPubli">Voir les commentaires publiés</a>
     </div>
 
-    <div class="container p-4">
+    <div class="p-4">
         <table class="table table-striped">
             <thead>
                 <tr>
