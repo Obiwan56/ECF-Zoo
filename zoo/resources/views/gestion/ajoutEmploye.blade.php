@@ -57,6 +57,7 @@
                     value="{{ old('role') }}">
                     <option value="employe">Employé</option>
                     <option value="veto">Vétérinaire</option>
+                    {{-- <option value="admin">admin</option> --}}
 
 
                 </select>

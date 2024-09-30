@@ -72,4 +72,5 @@ class UserController extends Controller
         return redirect('/')->with('status', 'Vous êtes bien déconnecté');
     }
 
+
 }
