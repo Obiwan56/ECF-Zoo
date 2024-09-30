@@ -57,6 +57,7 @@
                                 <li><a class="dropdown-item" href="/gestionHabitat">Gestion des Habitats</a></li>
                                 <li><a class="dropdown-item" href="/gestionRepasAnimal">Gestion des repas des animaux</a>
                                 <li><a class="dropdown-item" href="/gestionNourriture">Gestion des aliments</a></li>
+                                <li><a class="dropdown-item" href="/gestionRapportVeto">Gestion des rapport vétérinaires</a></li>
 
                             </ul>
                         </li>

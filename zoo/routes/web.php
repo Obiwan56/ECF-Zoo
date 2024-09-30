@@ -5,6 +5,7 @@ use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\HabitatController;
 use App\Http\Controllers\NourritureController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RapportVetoController;
 use App\Http\Controllers\RepasAnimalController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
@@ -93,6 +94,12 @@ Route::get('/modifRepasAnimal/{id}', [RepasAnimalController::class, 'formModifRe
 Route::post('/modifRepasAnimal/{id}', [RepasAnimalController::class, 'modifRepas']);
 Route::get('/deleteRepas/{id}', [RepasAnimalController::class, 'deleteRepas']);
 
+Route::get('/gestionRapportVeto', [RapportVetoController::class, 'listeRapport'])->name('gestion.gestionRapportVeto');
+Route::get('/ajoutRapportVeto', [RapportVetoController::class, 'formAjoutRapport'])->name('gestion.ajoutRapportVeto');
+Route::post('/ajoutRapportVeto', [RapportVetoController::class, 'ajoutRapport'])->name('gestion.ajoutRapportVeto');
+Route::get('/modifRapportVeto/{id}', [RapportVetoController::class, 'formModifRapport'])->name('gestion.modifRapportVeto');
+Route::post('/modifRapportVeto/{id}', [RapportVetoController::class, 'modifRapport'])->name('gestion.modifRapportVeto');
+Route::get('/deleteRapport/{id}', [RapportVetoController::class, 'deleteRapport'])->name('gestion.deleteRapport');
 
 
 

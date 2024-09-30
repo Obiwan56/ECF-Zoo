@@ -14,7 +14,8 @@ class RepasAnimalController extends Controller
     // Liste des repas
     public function listeDesRepas()
     {
-        $repas = RepasAnimal::with('animal', 'nourriture')->get();
+        // Trier les repas par date (du plus récent au plus ancien)
+        $repas = RepasAnimal::with('animal', 'nourriture')->orderBy('date', 'desc')->get();
         return view('gestion.gestionRepasAnimal', compact('repas'));
     }
 
