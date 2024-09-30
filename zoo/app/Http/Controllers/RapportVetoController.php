@@ -59,5 +59,3 @@ class RapportVetoController extends Controller
 
 }
 
-
-//PB de route à verifier
