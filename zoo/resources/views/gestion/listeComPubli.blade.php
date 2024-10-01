@@ -21,7 +21,7 @@
 
     <div class="p-4">
 
-        <div class="container p-4">
+        <div class="p-4">
             <a href="/gestionCommentaire" class="btn btn-primary mb-4">Revenir à la gestion des commentaires</a>
             <table class="table table-striped">
                 <thead>

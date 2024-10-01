@@ -11,7 +11,6 @@ class Nourriture extends Model
 
     protected $fillable = [
         'aliment',
-        'animal_id',
     ];
 
     public function repas()
@@ -19,8 +18,8 @@ class Nourriture extends Model
         return $this->hasMany(RepasAnimal::class);
     }
 
-    public function animaux()
+    public function animal()
     {
-        return $this->belongsToMany(Animal::class, 'animal_nourriture');
+        return $this->belongsTo(Animal::class);
     }
 }

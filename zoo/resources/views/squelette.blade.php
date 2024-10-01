@@ -28,7 +28,7 @@
                     <ul class="navbar-nav">
                         @auth
                             <li class="nav-item">
-                                <span class="nav-link dropdown-toggle text-danger" href="#" role="button"
+                                <span class="nav-link dropdown-toggle text-warning" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->prenom }}</span>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="/deconnexion">Déconnexion</a></li>

@@ -28,4 +28,10 @@ class Animal extends Model
     {
         return $this->belongsToMany(Nourriture::class, 'animal_nourriture');
     }
+
+
+    public function habitat()
+    {
+        return $this->belongsTo(Habitat::class);
+    }
 }
