@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\CommentaireController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HabitatController;
 use App\Http\Controllers\NourritureController;
 use App\Http\Controllers\ProfileController;
@@ -26,7 +27,7 @@ Route::get('/formCommentaire', [CommentaireController::class, 'formCom']);
 Route::post('/formCommentaire', [CommentaireController::class, 'ajoutCom']);
 
 Route::get('/allCommentaire', [CommentaireController::class, 'listeCommentaireOk']);
-Route::get('/', [CommentaireController::class, 'dixDerCom']);
+Route::get('/', [CommentaireController::class, 'dixDerCom'])->name('accueil');
 
 Route::get('/service', [ServiceController::class, 'service']);
 
@@ -44,6 +45,10 @@ Route::get('/detailHabitat/{id}', [HabitatController::class, 'detailHabitat']);
 
 
 Route::get('/deconnexion', [UserController::class, 'deconnexion']);
+
+Route::get('contact', [ContactController::class, 'formContact']);
+Route::post('contact', [ContactController::class, 'contact']);
+
 
 
 
