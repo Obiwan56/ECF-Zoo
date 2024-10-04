@@ -65,11 +65,13 @@
                                     <li><a class="dropdown-item" href="/gestionNourriture">Gestion des aliments</a></li>
 
                                     @auth
-                                        @if (auth()->user()->role === 'veto')
-                                            <li><a class="dropdown-item" href="/gestionRapportVeto">Gestion des rapport
+                                        @if (auth()->user()->role === 'veto' || auth()->user()->role === 'admin')
+                                            <li><a class="dropdown-item" href="/gestionRapportVeto">Gestion des rapports
                                                     vétérinaires</a></li>
                                         @endif
                                     @endauth
+
+
 
                                 </ul>
                             </li>

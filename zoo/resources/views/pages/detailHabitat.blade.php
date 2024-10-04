@@ -37,7 +37,7 @@
                     <ul>
                         @foreach ($habitat->animals as $animal)
                             <li>
-                                <a href="{{ route('animal', $animal->id) }}">
+                                <a href="{{ route('detailAnimaux', $animal->id) }}">
                                     {{ $animal->prenom }} ({{ $animal->race }})
                                 </a>
                             </li>
@@ -52,7 +52,7 @@
 
         <!-- Bouton de retour à l'animal si un animal spécifique est affiché -->
         @if (session('animal_id'))
-            <a href="{{ route('animal.show', session('animal_id')) }}" class="btn btn-secondary mt-4">
+            <a href="{{ route('detailAnimaux', session('animal_id')) }}" class="btn btn-secondary mt-4">
                 Retour à l'animal
             </a>
         @endif

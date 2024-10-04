@@ -4,17 +4,31 @@
     .center-content {
         display: flex;
         justify-content: center;
-        align-items: flex-start; /* Alignement vers le haut */
-        padding-top: 50px; /* Espace en haut pour éviter que le formulaire ne touche l'en-tête */
+        align-items: flex-start;
+        /* Alignement vers le haut */
+        padding-top: 50px;
+        padding-left: 7.5%;
+        /* Espace en haut pour éviter que le formulaire ne touche l'en-tête */
     }
 
     .card-custom {
-        width: 100%; /* Pour que la carte prenne toute la largeur du col */
-        max-width: 500px; /* Largeur maximale du formulaire */
+        width: 100%;
+        /* Pour que la carte prenne toute la largeur du col */
+        max-width: 500px;
+        /* Largeur maximale du formulaire */
     }
 </style>
 
 @section('contenu')
+
+    <div class="p-4">
+        @if (session('danger'))
+            <div class="alert alert-danger m-4">
+                {{ session('danger') }}
+            </div>
+        @endif
+    </div>
+
     <div class="container">
         <h1 class="text-center text-primary mb-4">Réservé au membre du personnel</h1>
         <div class="center-content">

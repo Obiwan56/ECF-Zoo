@@ -107,5 +107,4 @@ class AnimalController extends Controller
     {
         return $this->belongsTo(Habitat::class);
     }
-
 }

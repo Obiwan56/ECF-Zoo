@@ -32,11 +32,10 @@ Route::get('/', [CommentaireController::class, 'dixDerCom'])->name('accueil');
 Route::get('/service', [ServiceController::class, 'service']);
 
 Route::get('/animaux', [AnimalController::class, 'animal']);
-Route::get('/detailAnimaux/{id}', [AnimalController::class, 'detailAnimal']);
+Route::get('/detailAnimaux/{id}', [AnimalController::class, 'detailAnimal'])->name('detailAnimaux');
 
 Route::get('/habitat/{id}', [HabitatController::class, 'detailHabitat'])->name('detailHabitat');
 
-Route::get('/animal/{id}', [AnimalController::class, 'show'])->name('animal');
 
 
 
@@ -52,15 +51,10 @@ Route::post('contact', [ContactController::class, 'contact']);
 
 
 
-Route::get('/gestionCommentaire', [CommentaireController::class, 'gestionCom']);
-Route::get('/deleteCom/{id}', [CommentaireController::class, 'deleteCom']);
-Route::get('/deleteCom2/{id}', [CommentaireController::class, 'deleteCom2']);
-Route::get('/aprouvCom/{id}', [CommentaireController::class, 'aprouvCom']);
-Route::get('/listeComPubli', [CommentaireController::class, 'commentaireOk']);
+
 
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-
     Route::get('/ajoutEmploye', [UserController::class, 'formUser']);
     Route::post('/ajoutEmploye', [UserController::class, 'creerEmploye']);
     Route::get('/gestionEmploye', [UserController::class, 'listeEmploye']);
@@ -69,44 +63,52 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/effacerEmploye/{id}', [UserController::class, 'effacerEmploye']);
 });
 
-Route::get('/gestionService', [ServiceController::class, 'listeService']);
-Route::get('/ajoutService', [ServiceController::class, 'formCreerService']);
-Route::post('/ajoutService', [ServiceController::class, 'creerService']);
-Route::get('/modifService/{id}', [ServiceController::class, 'formModifService']);
-Route::post('/modifService/{id}', [ServiceController::class, 'modifService']);
-Route::get('/effacerService/{id}', [ServiceController::class, 'deleteService']);
+Route::middleware(['auth', 'checkrole:employe,admin'])->group(function () {
+
+    Route::get('/gestionService', [ServiceController::class, 'listeService']);
+    Route::get('/ajoutService', [ServiceController::class, 'formCreerService']);
+    Route::post('/ajoutService', [ServiceController::class, 'creerService']);
+    Route::get('/modifService/{id}', [ServiceController::class, 'formModifService']);
+    Route::post('/modifService/{id}', [ServiceController::class, 'modifService']);
+    Route::get('/effacerService/{id}', [ServiceController::class, 'deleteService']);
 
 
-Route::get('/gestionAnimaux', [AnimalController::class, 'listeAnimaux']);
-Route::get('/ajoutAnimaux', [AnimalController::class, 'formCreerAnimaux']);
-Route::post('/ajoutAnimaux', [AnimalController::class, 'creerAnimaux']);
-Route::get('/modifAnimaux/{id}', [AnimalController::class, 'formModifAnimaux']);
-Route::post('/modifAnimaux/{id}', [AnimalController::class, 'modifAnimaux']);
-Route::get('/effacerAnimaux/{id}', [AnimalController::class, 'deleteAnimaux']);
+    Route::get('/gestionAnimaux', [AnimalController::class, 'listeAnimaux']);
+    Route::get('/ajoutAnimaux', [AnimalController::class, 'formCreerAnimaux']);
+    Route::post('/ajoutAnimaux', [AnimalController::class, 'creerAnimaux']);
+    Route::get('/modifAnimaux/{id}', [AnimalController::class, 'formModifAnimaux']);
+    Route::post('/modifAnimaux/{id}', [AnimalController::class, 'modifAnimaux']);
+    Route::get('/effacerAnimaux/{id}', [AnimalController::class, 'deleteAnimaux']);
 
-Route::get('/gestionHabitat', [HabitatController::class, 'listeHabitat']);
-Route::get('/ajoutHabitat', [HabitatController::class, 'formCreerHabitat']);
-Route::post('/ajoutHabitat', [HabitatController::class, 'creerHabitat']);
-Route::get('/modifHabitat/{id}', [HabitatController::class, 'formModifHabitat']);
-Route::post('/modifHabitat/{id}', [HabitatController::class, 'modifHabitat']);
-Route::get('/effacerHabitat/{id}', [HabitatController::class, 'deleteHabitat']);
+    Route::get('/gestionHabitat', [HabitatController::class, 'listeHabitat']);
+    Route::get('/ajoutHabitat', [HabitatController::class, 'formCreerHabitat']);
+    Route::post('/ajoutHabitat', [HabitatController::class, 'creerHabitat']);
+    Route::get('/modifHabitat/{id}', [HabitatController::class, 'formModifHabitat']);
+    Route::post('/modifHabitat/{id}', [HabitatController::class, 'modifHabitat']);
+    Route::get('/effacerHabitat/{id}', [HabitatController::class, 'deleteHabitat']);
 
-Route::get('/gestionNourriture', [NourritureController::class, 'listeNourriture']);
-Route::get('/ajoutNourriture', [NourritureController::class, 'formCreerNouriture']);
-Route::post('/ajoutNourriture', [NourritureController::class, 'creerNourriture']);
-Route::get('/modifNourriture/{id}', [NourritureController::class, 'formModifNourriture']);
-Route::post('/modifNourriture/{id}', [NourritureController::class, 'modifNourriture']);
-Route::get('/effacerNourriture/{id}', [NourritureController::class, 'deleteNourriture']);
+    Route::get('/gestionNourriture', [NourritureController::class, 'listeNourriture']);
+    Route::get('/ajoutNourriture', [NourritureController::class, 'formCreerNouriture']);
+    Route::post('/ajoutNourriture', [NourritureController::class, 'creerNourriture']);
+    Route::get('/modifNourriture/{id}', [NourritureController::class, 'formModifNourriture']);
+    Route::post('/modifNourriture/{id}', [NourritureController::class, 'modifNourriture']);
+    Route::get('/effacerNourriture/{id}', [NourritureController::class, 'deleteNourriture']);
 
-Route::get('/gestionRepasAnimal', [RepasAnimalController::class, 'listeDesRepas']);
-Route::get('/ajoutRepasAnimal', [RepasAnimalController::class, 'formAjoutRepas']);
-Route::post('/ajoutRepasAnimal', [RepasAnimalController::class, 'ajouterRepas']);
-Route::get('/modifRepasAnimal/{id}', [RepasAnimalController::class, 'formModifRepas']);
-Route::post('/modifRepasAnimal/{id}', [RepasAnimalController::class, 'modifRepas']);
-Route::get('/deleteRepas/{id}', [RepasAnimalController::class, 'deleteRepas']);
+    Route::get('/gestionRepasAnimal', [RepasAnimalController::class, 'listeDesRepas']);
+    Route::get('/ajoutRepasAnimal', [RepasAnimalController::class, 'formAjoutRepas']);
+    Route::post('/ajoutRepasAnimal', [RepasAnimalController::class, 'ajouterRepas']);
+    Route::get('/modifRepasAnimal/{id}', [RepasAnimalController::class, 'formModifRepas']);
+    Route::post('/modifRepasAnimal/{id}', [RepasAnimalController::class, 'modifRepas']);
+    Route::get('/deleteRepas/{id}', [RepasAnimalController::class, 'deleteRepas']);
 
+    Route::get('/gestionCommentaire', [CommentaireController::class, 'gestionCom']);
+    Route::get('/deleteCom/{id}', [CommentaireController::class, 'deleteCom']);
+    Route::get('/deleteCom2/{id}', [CommentaireController::class, 'deleteCom2']);
+    Route::get('/aprouvCom/{id}', [CommentaireController::class, 'aprouvCom']);
+    Route::get('/listeComPubli', [CommentaireController::class, 'commentaireOk']);
+});
 
-Route::middleware(['auth', 'role:veto'])->group(function () {
+Route::middleware(['auth', 'checkrole:veto,admin'])->group(function () {
 
     Route::get('/gestionRapportVeto', [RapportVetoController::class, 'listeRapport'])->name('gestion.gestionRapportVeto');
     Route::get('/ajoutRapportVeto', [RapportVetoController::class, 'formAjoutRapport'])->name('gestion.ajoutRapportVeto');
@@ -115,6 +117,8 @@ Route::middleware(['auth', 'role:veto'])->group(function () {
     Route::post('/modifRapportVeto/{id}', [RapportVetoController::class, 'modifRapport'])->name('gestion.modifRapportVeto');
     Route::get('/deleteRapport/{id}', [RapportVetoController::class, 'deleteRapport'])->name('gestion.deleteRapport');
 });
+
+
 
 
 
