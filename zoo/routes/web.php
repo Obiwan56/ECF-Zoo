@@ -4,6 +4,7 @@ use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HabitatController;
+use App\Http\Controllers\HoraireController;
 use App\Http\Controllers\NourritureController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RapportVetoController;
@@ -106,6 +107,16 @@ Route::middleware(['auth', 'checkrole:employe,admin'])->group(function () {
     Route::get('/deleteCom2/{id}', [CommentaireController::class, 'deleteCom2']);
     Route::get('/aprouvCom/{id}', [CommentaireController::class, 'aprouvCom']);
     Route::get('/listeComPubli', [CommentaireController::class, 'commentaireOk']);
+
+
+
+    Route::get('/gestionHoraire', [HoraireController::class, 'listeHoraire'])->name('gestion.gestionHoraire');
+    Route::get('/ajoutHoraire', [HoraireController::class, 'formAjoutHoraire'])->name('gestion.formAjoutHoraire');
+    Route::post('/ajoutHoraire', [HoraireController::class, 'ajoutHoraire'])->name('gestion.ajoutHoraire');
+    Route::get('/modifHoraire/{id}', [HoraireController::class, 'formModifHoraire'])->name('gestion.formModifHoraire');
+    Route::post('/modifHoraire/{id}', [HoraireController::class, 'modifHoraire'])->name('gestion.modifHoraire');
+    Route::get('/deleteHoraire/{id}', [HoraireController::class, 'deleteHoraire'])->name('gestion.deleteHoraire');
+
 });
 
 Route::middleware(['auth', 'checkrole:veto,admin'])->group(function () {

@@ -51,18 +51,25 @@
                                     @auth
                                         @if (auth()->user()->role === 'admin')
                                             <li><a class="dropdown-item" href="/gestionEmploye">Gestion des employé(e)s</a></li>
+                                            <li><a class="dropdown-item" href="/gestionHoraire">Gestion des Horaires</a></li>
                                         @endif
                                     @endauth
-                                    <li><a class="dropdown-item" href="/gestionCommentaire">Gestion des commentaires</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="/gestionService">Gestion des services</a></li>
 
-                                    <li><a class="dropdown-item" href="/gestionVehicule">Gestion des messages</a></li>
-                                    <li><a class="dropdown-item" href="/gestionAnimaux">Gestion des animaux</a></li>
-                                    <li><a class="dropdown-item" href="/gestionHabitat">Gestion des Habitats</a></li>
-                                    <li><a class="dropdown-item" href="/gestionRepasAnimal">Gestion des repas des
-                                            animaux</a>
-                                    <li><a class="dropdown-item" href="/gestionNourriture">Gestion des aliments</a></li>
+                                    @auth
+                                        @if (auth()->user()->role === 'veto' || auth()->user()->role === 'admin')
+                                            <li><a class="dropdown-item" href="/gestionCommentaire">Gestion des commentaires</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="/gestionService">Gestion des services</a></li>
+
+                                            <li><a class="dropdown-item" href="/gestionVehicule">Gestion des messages</a></li>
+                                            <li><a class="dropdown-item" href="/gestionAnimaux">Gestion des animaux</a></li>
+                                            <li><a class="dropdown-item" href="/gestionHabitat">Gestion des Habitats</a></li>
+                                            <li><a class="dropdown-item" href="/gestionRepasAnimal">Gestion des repas des
+                                                    animaux</a>
+                                            <li><a class="dropdown-item" href="/gestionNourriture">Gestion des aliments</a></li>
+                                        @endif
+                                    @endauth
+
 
                                     @auth
                                         @if (auth()->user()->role === 'veto' || auth()->user()->role === 'admin')
@@ -120,24 +127,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-4">
-                    <p>emplacement 1</p>
+                    <h3 class="text-primary">Adresse du site :</h3>
+                    <p>Forêt de Brocéliande<br>35380 Painpont</p>
                 </div>
                 <div class="col-6 col-lg-4">
-                    <p>emplacement 2</p>
+                    <h3 class="text-primary">Nos horaires</h3>
+
+                    @foreach ($horaires as $horaire)
+                        <div>
+                            <p>{{ $horaire->horaire1 }}</p>
+                            <p>{{ $horaire->horaire2 }}</p>
+                        </div>
+                    @endforeach
 
                 </div>
                 <div class="col-6 col-lg-4">
-                    <a class="navbar-brand text-primary " href="/"> <img class="rounded-circle"
-                            src="{{ asset('logo/logo2.png') }}" width="100px" alt="">
+                    <a class="navbar-brand text-primary" href="/">
+                        <img class="rounded-circle" src="{{ asset('logo/logo2.png') }}" width="100px" alt="">
                     </a>
-
                 </div>
             </div>
         </div>
     </footer>
 
 </body>
-
-
 
 </html>
