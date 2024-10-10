@@ -46,7 +46,7 @@
                         {{ $message }}</span>
                 @enderror
 
-                <button id="togglePassword" class="btn btn-outline" type="button">
+                <button class="btn btn-outline toggle-password" type="button">
                     <i class="bi bi-eye"></i>
                 </button>
             </div>

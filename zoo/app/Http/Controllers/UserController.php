@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\User2Request;
+use App\Http\Requests\UserRequest3;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -73,4 +74,19 @@ class UserController extends Controller
     }
 
 
+    public function formModifMdp($id)
+    {
+        $user = User::findOrFail($id);
+        return view('gestion.modifMdp', compact('user'));
+    }
+
+    public function modifMdp(UserRequest3 $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect('/')->with('status', 'Mot de passe modifié avec succès');
+    }
 }

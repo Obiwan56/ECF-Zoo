@@ -30,7 +30,7 @@
                 <select id="animal_id" name="animal_id" class="form-control">
                     <option value="">Sélectionnez un animal</option>
                     @foreach ($animals as $animal)
-                        <option value="{{ $animal->id }}">{{ $animal->prenom }}</option>
+                        <option value="{{ $animal->id }}">{{ $animal->prenom }}  ({{ $animal->race }})</option>
                     @endforeach
                 </select>
                 @error('animal_id')

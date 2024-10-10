@@ -29,12 +29,13 @@
         <div class="row">
             @foreach ($habitats as $habitat)
                 <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm" style="width: 100%; background-color: #D3D3D3;">
-                        <!-- Ajustement de la taille de l'image -->
-                        <img src="{{ asset('storage/' . $habitat->img1) }}" class="card-img-top img-fluid"
-                            style="height: 200px; width: 100%; object-fit: contain;"
-                            alt="Image de l'habitat {{ $habitat->nom }}">
-                        <div class="card-body">
+                    <div class="card mb-4" style="width: 100%; background-color: #D3D3D3; border: none;">
+                        <div style="overflow: hidden; border-radius: 15px;">
+                            <img src="{{ asset('storage/' . $habitat->img1) }}" class="card-img-top img-fluid"
+                                 style="height: 200px; width: 100%; object-fit: contain; border-radius: 15px;"
+                                 alt="Image de l'habitat {{ $habitat->nom }}">
+                        </div>
+                        <div class="card-body text-center">
                             <h5 class="card-title">{{ $habitat->nom }}</h5>
                             <a href="{{ route('detailHabitat', $habitat->id) }}" class="btn btn-primary">Voir plus</a>
                         </div>
@@ -47,13 +48,14 @@
         <div class="row">
             @foreach ($animals as $animal)
                 <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm" style="width: 100%; background-color: #D3D3D3;">
-                        <!-- Ajustement de la taille de l'image -->
-                        <img src="{{ asset('storage/' . $animal->img1) }}" class="card-img-top img-fluid"
-                            style="height: 200px; width: 100%; object-fit: contain;"
-                            alt="Image de l'animal {{ $animal->nom }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $animal->nom }}</h5>
+                    <div class="card mb-4" style="width: 100%; background-color: #D3D3D3; border: none;">
+                        <div style="overflow: hidden; border-radius: 15px;">
+                            <img src="{{ asset('storage/' . $animal->img1) }}" class="card-img-top img-fluid"
+                                 style="height: 200px; width: 100%; object-fit: contain; border-radius: 15px;"
+                                 alt="Image de l'animal {{ $animal->prenom }}">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ $animal->prenom }}</h5>
                             <a href="{{ route('detailAnimaux', $animal->id) }}" class="btn btn-primary">Voir plus</a>
                         </div>
                     </div>
@@ -65,12 +67,13 @@
         <div class="row">
             @foreach ($services as $service)
                 <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm" style="width: 100%; background-color: #D3D3D3;">
-                        <!-- Ajustement de la taille de l'image -->
-                        <img src="{{ asset('storage/' . $service->img1) }}" class="card-img-top img-fluid"
-                            style="height: 200px; width: 100%; object-fit: contain;"
-                            alt="Image du service {{ $service->nom }}">
-                        <div class="card-body">
+                    <div class="card mb-4" style="width: 100%; background-color: #D3D3D3; border: none;">
+                        <div style="overflow: hidden; border-radius: 15px;">
+                            <img src="{{ asset('storage/' . $service->img1) }}" class="card-img-top img-fluid"
+                                 style="height: 200px; width: 100%; border-radius: 15px; object-fit: contain; "
+                                 alt="Image du service {{ $service->nom }}">
+                        </div>
+                        <div class="card-body text-center">
                             <h5 class="card-title">{{ $service->nom }}</h5>
                             <a href="{{ route('detailHabitat', $service->id) }}" class="btn btn-primary">Voir plus</a>
                         </div>
@@ -97,7 +100,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="2">Aucun commentaire trouvé.</td>
+                        <td colspan="2">Aucun commentaire pour le moment.</td>
                     </tr>
                 @endif
             </tbody>
@@ -106,10 +109,9 @@
 
     <div class="row justify-content-center m-1">
         <div class="col-xl-6">
-            <a href="/formCommentaire" class="btn btn-primary mb-3 btn-block">Laissez-nous votre témoignage, impression ou
-                commentaire</a>
+            <a href="/formCommentaire" class="btn btn-primary mb-3 btn-block">Laissez-nous votre témoignage, impression ou commentaire</a>
             <a href="/allCommentaire" class="btn btn-primary mb-3 btn-block">Afficher tous les commentaires</a>
         </div>
     </div>
-    </div>
+</div>
 @endsection

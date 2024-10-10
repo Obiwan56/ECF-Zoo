@@ -117,7 +117,6 @@ Route::middleware(['auth', 'checkrole:employe,admin'])->group(function () {
     Route::get('/modifHoraire/{id}', [HoraireController::class, 'formModifHoraire'])->name('gestion.formModifHoraire');
     Route::post('/modifHoraire/{id}', [HoraireController::class, 'modifHoraire'])->name('gestion.modifHoraire');
     Route::get('/deleteHoraire/{id}', [HoraireController::class, 'deleteHoraire'])->name('gestion.deleteHoraire');
-
 });
 
 Route::middleware(['auth', 'checkrole:veto,admin'])->group(function () {
@@ -130,6 +129,14 @@ Route::middleware(['auth', 'checkrole:veto,admin'])->group(function () {
     Route::get('/deleteRapport/{id}', [RapportVetoController::class, 'deleteRapport'])->name('gestion.deleteRapport');
 });
 
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/modifMdp/{id}', [UserController::class, 'formModifMdp'])->name('modifMdp');
+    Route::post('/modifMdp/{id}', [UserController::class, 'modifMdp']);
+
+
+
+});
 
 
 
