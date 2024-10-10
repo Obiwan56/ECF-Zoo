@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\HabitatRequest;
 use App\Http\Requests\HabitatRequest2;
 use App\Models\Animal;
+use App\Models\commentaire;
 use App\Models\Habitat;
+use App\Models\service;
 use Illuminate\Support\Facades\Storage;
 
 class HabitatController extends Controller
@@ -107,5 +109,15 @@ class HabitatController extends Controller
     {
         $habitat = Habitat::with('animaux')->findOrFail($id);
         return view('detailHabitat', compact('habitat'));
+    }
+
+    public function accueil()
+    {
+        $habitats = Habitat::inRandomOrder()->take(3)->get(); // Récupère 3 habitats aléatoires
+        $animals = Animal::inRandomOrder()->take(3)->get(); // Récupère 3 habitats aléatoires
+        $services = Service::inRandomOrder()->take(3)->get(); // Récupère 3 habitats aléatoires
+
+        $coms = Commentaire::latest()->take(10)->get(); // Récupère les 10 derniers commentaires
+        return view('pages.accueil', compact('habitats', 'coms', 'animals', 'services')); // Passe les habitats et commentaires à la vue
     }
 }

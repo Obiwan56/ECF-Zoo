@@ -37,6 +37,7 @@ Route::get('/detailAnimaux/{id}', [AnimalController::class, 'detailAnimal'])->na
 
 Route::get('/habitat/{id}', [HabitatController::class, 'detailHabitat'])->name('detailHabitat');
 
+Route::get('/', [HabitatController::class, 'accueil'])->name('accueil');
 
 
 
