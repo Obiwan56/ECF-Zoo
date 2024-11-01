@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\AnimalVoteController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HabitatController;
@@ -134,9 +135,20 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/modifMdp/{id}', [UserController::class, 'formModifMdp'])->name('modifMdp');
     Route::post('/modifMdp/{id}', [UserController::class, 'modifMdp']);
 
-
-
 });
+
+Route::get('/gestionVoteAnimal', [AnimalVoteController::class, 'listeVoteAnimal']);
+Route::get('/ajoutAnimalVote', [AnimalVoteController::class, 'formCreerAnimalVote']);
+Route::post('/ajoutAnimalVote', [AnimalVoteController::class, 'creerAnimalVote']);
+Route::get('/deleteVote/{id}', [AnimalVoteController::class, 'deleteVote']);
+
+Route::get('/voteAnimal', [AnimalVoteController::class, 'VoteAnimal']);
+
+
+Route::post('/animal_votes/{animalVote}/increment', [AnimalVoteController::class, 'incrementVote'])->name('animal_votes.increment');
+
+
+
 
 
 

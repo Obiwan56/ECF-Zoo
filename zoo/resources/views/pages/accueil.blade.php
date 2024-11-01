@@ -24,6 +24,12 @@
     <h1 class="text-primary text-center">Bienvenue au parc Arcadia</h1>
 
     <div class="p-4">
+        <a href="/voteAnimal" class="btn btn-primary">Votez pour votre Animal
+            préféré</a>
+    </div>
+
+
+    <div class="p-4">
 
         <h2 class="text-center p-4 text-primary">Découvrez nos habitats</h2>
         <div class="row">
@@ -32,8 +38,8 @@
                     <div class="card mb-4" style="width: 100%; background-color: #D3D3D3; border: none;">
                         <div style="overflow: hidden; border-radius: 15px;">
                             <img src="{{ asset('storage/' . $habitat->img1) }}" class="card-img-top img-fluid"
-                                 style="height: 200px; width: 100%; object-fit: contain; border-radius: 15px;"
-                                 alt="Image de l'habitat {{ $habitat->nom }}">
+                                style="height: 200px; width: 100%; object-fit: contain; border-radius: 15px;"
+                                alt="Image de l'habitat {{ $habitat->nom }}">
                         </div>
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $habitat->nom }}</h5>
@@ -51,8 +57,8 @@
                     <div class="card mb-4" style="width: 100%; background-color: #D3D3D3; border: none;">
                         <div style="overflow: hidden; border-radius: 15px;">
                             <img src="{{ asset('storage/' . $animal->img1) }}" class="card-img-top img-fluid"
-                                 style="height: 200px; width: 100%; object-fit: contain; border-radius: 15px;"
-                                 alt="Image de l'animal {{ $animal->prenom }}">
+                                style="height: 200px; width: 100%; object-fit: contain; border-radius: 15px;"
+                                alt="Image de l'animal {{ $animal->prenom }}">
                         </div>
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $animal->prenom }}</h5>
@@ -70,8 +76,8 @@
                     <div class="card mb-4" style="width: 100%; background-color: #D3D3D3; border: none;">
                         <div style="overflow: hidden; border-radius: 15px;">
                             <img src="{{ asset('storage/' . $service->img1) }}" class="card-img-top img-fluid"
-                                 style="height: 200px; width: 100%; border-radius: 15px; object-fit: contain; "
-                                 alt="Image du service {{ $service->nom }}">
+                                style="height: 200px; width: 100%; border-radius: 15px; object-fit: contain; "
+                                alt="Image du service {{ $service->nom }}">
                         </div>
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $service->nom }}</h5>
@@ -109,9 +115,10 @@
 
     <div class="row justify-content-center m-1">
         <div class="col-xl-6">
-            <a href="/formCommentaire" class="btn btn-primary mb-3 btn-block">Laissez-nous votre témoignage, impression ou commentaire</a>
+            <a href="/formCommentaire" class="btn btn-primary mb-3 btn-block">Laissez-nous votre témoignage, impression ou
+                commentaire</a>
             <a href="/allCommentaire" class="btn btn-primary mb-3 btn-block">Afficher tous les commentaires</a>
         </div>
     </div>
-</div>
+    </div>
 @endsection

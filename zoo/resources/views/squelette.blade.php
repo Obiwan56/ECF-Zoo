@@ -18,7 +18,7 @@
                 <a class="navbar-brand text-primary" href="/">
                     <img class="no-border" src="{{ asset('logo/logo1.png') }}" width="100px" alt="">
                 </a>
-                <h1 class="text-primary text-center mx-auto">Zoo Arcadia</h1>
+                <h1 class="text-primary">Zoo Arcadia</h1>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav me-auto">
                         @auth
                             <li class="nav-item">
                                 <span class="nav-link dropdown-toggle text-warning" href="#" role="button"
@@ -62,14 +62,21 @@
                                             <li><a class="dropdown-item" href="/gestionVehicule">Gestion des messages</a></li>
                                             <li><a class="dropdown-item" href="/gestionAnimaux">Gestion des animaux</a></li>
                                             <li><a class="dropdown-item" href="/gestionHabitat">Gestion des Habitats</a></li>
-                                            <li><a class="dropdown-item" href="/gestionRepasAnimal">Gestion des repas des animaux</a></li>
+                                            <li><a class="dropdown-item" href="/gestionRepasAnimal">Gestion des repas des
+                                                    animaux</a></li>
                                             <li><a class="dropdown-item" href="/gestionNourriture">Gestion des aliments</a></li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="/gestionVoteAnimal">Gérer les
+                                                    Animaux pour le vote</a>
+                                            </li>
                                         @endif
                                     @endauth
 
                                     @auth
                                         @if (auth()->user()->role === 'veto' || auth()->user()->role === 'admin')
-                                            <li><a class="dropdown-item" href="/gestionRapportVeto">Gestion des rapports vétérinaires</a></li>
+                                            <li><a class="dropdown-item" href="/gestionRapportVeto">Gestion des rapports
+                                                    vétérinaires</a></li>
                                         @endif
                                     @endauth
                                 </ul>
@@ -91,8 +98,8 @@
                             @endguest
                         </li>
                     </ul>
+
                 </div>
-            </div>
         </nav>
     </header>
 
@@ -118,7 +125,8 @@
                 </div>
                 <div class="col-6 col-lg-4">
                     <a class="navbar-brand text-primary" href="/">
-                        <img class="rounded-circle no-border" src="{{ asset('logo/logo2.png') }}" width="100px" alt="">
+                        <img class="rounded-circle no-border" src="{{ asset('logo/logo2.png') }}" width="100px"
+                            alt="">
                     </a>
                 </div>
             </div>
