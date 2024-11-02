@@ -15,9 +15,10 @@ class AnimalVoteController extends Controller
         return view('voteAnimal.gestionVoteAnimal', compact('votes'));
     }
 
+    //page pour voter
     public function VoteAnimal()
     {
-        $votes = AnimalVote::all();
+        $votes = AnimalVote::paginate(10);
         return view('voteAnimal.VoteAnimal', compact('votes'));
     }
 
