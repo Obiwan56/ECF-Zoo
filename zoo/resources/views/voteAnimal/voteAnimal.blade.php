@@ -2,24 +2,48 @@
 
 @section('contenu')
     <div class="container p-4">
-        <div class="row">
-            @foreach ($votes as $vote)
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="{{ asset('storage/' . $vote->photo) }}" class="card-img-top img-fluid"
-                            alt="{{ $vote->name }}"
-                            style="height: 200px; width: 100%; object-fit: contain; border-radius: 15px;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $vote->name }}</h5>
-                            <p class="card-text">Votes: <strong>{{ $vote->votes }}</strong></p>
-                            <form action="{{ route('animal_votes.increment', $vote) }}" method="POST">
-                                @csrf
-                                <button type="submit" class="btn btn-primary w-100">Vote</button>
-                            </form>
-                        </div>
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4>Ajouter un animal pour le vote</h4>
+            </div>
+            <div class="card-body">
+                <form action="" method="POST" class="form-group" enctype="multipart/form-data">
+                    @csrf
+
+                    <!-- Champ pour le nom -->
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nom :</label>
+                        <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+                        @error('name')
+                            <span class="text-danger">
+                                {{ $message }}</span>
+                        @enderror
                     </div>
-                </div>
-            @endforeach
+
+                    <!-- Champ pour la race -->
+                    <div class="form-group">
+                        <label for="race" class="form-label">Race :</label>
+                        <input type="text" name="race" class="form-control" value="{{ old('race') }}">
+                        @error('race')
+                            <span class="text-danger">
+                                {{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <!-- Champ pour la photo -->
+                    <div class="form-group">
+                        <label for="photo" class="form-label">Photo :</label>
+                        <input type="file" name="photo" class="form-control">
+                        @error('photo')
+                            <span class="text-danger">
+                                {{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <!-- Bouton de soumission -->
+                    <button type="submit" class="btn btn-success">Ajouter</button>
+                </form>
+            </div>
         </div>
     </div>
 @endsection

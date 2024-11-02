@@ -144,7 +144,6 @@ Route::get('/deleteVote/{id}', [AnimalVoteController::class, 'deleteVote']);
 
 Route::get('/voteAnimal', [AnimalVoteController::class, 'VoteAnimal']);
 
-
 Route::post('/animal_votes/{animalVote}/increment', [AnimalVoteController::class, 'incrementVote'])->name('animal_votes.increment');
 
 
