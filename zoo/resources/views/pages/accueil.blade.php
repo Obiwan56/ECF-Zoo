@@ -2,94 +2,92 @@
 
 @section('contenu')
     <div class="p-4">
+        {{-- Notifications de succès ou d'erreur --}}
         @if (session('danger'))
             <div class="alert alert-danger m-4">
                 {{ session('danger') }}
             </div>
         @endif
 
-        @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        @if (session('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success') }}
+        @if (session('status') || session('success'))
+            <div class="alert alert-success m-4">
+                {{ session('status') ?? session('success') }}
             </div>
         @endif
     </div>
 
-    <h1 class="text-primary text-center">Bienvenue au parc Arcadia</h1>
+    {{-- Section d'accueil --}}
+    <section class="text-center my-5">
+        <h1 class="text-primary display-1">Bienvenue au parc Arcadia</h1>
+        <p class="lead">Découvrez un monde fascinant d'animaux, d'habitats et de services uniques!</p>
+        <a href="/voteAnimal" class="btn btn-primary btn-lg mt-3">Votez pour votre Animal préféré</a>
+    </section>
 
-    <div class="p-4">
-        <a href="/voteAnimal" class="btn btn-primary">Votez pour votre Animal
-            préféré</a>
-    </div>
-
-
-    <div class="p-4">
-
-        <h2 class="text-center p-4 text-primary">Découvrez nos habitats</h2>
-        <div class="row">
+    {{-- Section des habitats --}}
+    <section class="container my-5">
+        <h2 class="text-center text-primary">Découvrez nos habitats</h2>
+        <div class="row g-4">
             @foreach ($habitats as $habitat)
-                <div class="col-md-4">
-                    <div class="card mb-4" style="width: 100%; background-color: #D3D3D3; border: none;">
-                        <div style="overflow: hidden; border-radius: 15px;">
-                            <img src="{{ asset('storage/' . $habitat->img1) }}" class="card-img-top img-fluid"
-                                style="height: 200px; width: 100%; object-fit: contain; border-radius: 15px;"
-                                alt="Image de l'habitat {{ $habitat->nom }}">
-                        </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card shadow-sm h-100 border-0 rounded-lg overflow-hidden">
+                        <img src="{{ asset('storage/' . $habitat->img1) }}" class="card-img-top img-fluid"
+                             style="height: 250px; width: 100%; object-fit: contain"
+                             alt="Image de l'habitat {{ $habitat->nom }}">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $habitat->nom }}</h5>
-                            <a href="{{ route('detailHabitat', $habitat->id) }}" class="btn btn-primary">Voir plus</a>
+                            <a href="{{ route('detailHabitat', $habitat->id) }}" class="btn btn-outline-primary">Voir plus</a>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
+    </section>
 
-        <h2 class="text-center p-4 text-primary">Découvrez nos ami(e)s pensionnaires</h2>
-        <div class="row">
+    {{-- Section des animaux --}}
+    <section class="container my-5">
+        <h2 class="text-center text-primary">Découvrez nos ami(e)s pensionnaires</h2>
+        <div class="row g-4">
             @foreach ($animals as $animal)
-                <div class="col-md-4">
-                    <div class="card mb-4" style="width: 100%; background-color: #D3D3D3; border: none;">
-                        <div style="overflow: hidden; border-radius: 15px;">
-                            <img src="{{ asset('storage/' . $animal->img1) }}" class="card-img-top img-fluid"
-                                style="height: 200px; width: 100%; object-fit: contain; border-radius: 15px;"
-                                alt="Image de l'animal {{ $animal->prenom }}">
-                        </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card shadow-sm h-100 border-0 rounded-lg overflow-hidden">
+                        <img src="{{ asset('storage/' . $animal->img1) }}" class="card-img-top img-fluid"
+                             style="height: 250px; width: 100%; object-fit: contain"
+                             alt="Image de l'animal {{ $animal->prenom }}">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $animal->prenom }}</h5>
-                            <a href="{{ route('detailAnimaux', $animal->id) }}" class="btn btn-primary">Voir plus</a>
+                            <a href="{{ route('detailAnimaux', $animal->id) }}" class="btn btn-outline-primary">Voir plus</a>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
+    </section>
 
-        <h2 class="text-center p-4 text-primary">Découvrez nos services et animations</h2>
-        <div class="row">
+    {{-- Section des services --}}
+    <section class="container my-5">
+        <h2 class="text-center text-primary">Découvrez nos services et animations</h2>
+        <div class="row g-4">
             @foreach ($services as $service)
-                <div class="col-md-4">
-                    <div class="card mb-4" style="width: 100%; background-color: #D3D3D3; border: none;">
-                        <div style="overflow: hidden; border-radius: 15px;">
-                            <img src="{{ asset('storage/' . $service->img1) }}" class="card-img-top img-fluid"
-                                style="height: 200px; width: 100%; border-radius: 15px; object-fit: contain; "
-                                alt="Image du service {{ $service->nom }}">
-                        </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card shadow-sm h-100 border-0 rounded-lg overflow-hidden">
+                        <img src="{{ asset('storage/' . $service->img1) }}" class="card-img-top img-fluid"
+                             style="height: 250px; width: 100%; object-fit: contain"
+                             alt="Image du service {{ $service->nom }}">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $service->nom }}</h5>
-                            <a href="{{ route('detailHabitat', $service->id) }}" class="btn btn-primary">Voir plus</a>
+                            <a href="{{ route('detailHabitat', $service->id) }}" class="btn btn-outline-primary">Voir plus</a>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
+    </section>
 
-        <table class="table table-striped" id="tablCom">
-            <caption class="caption-top">Les dix derniers commentaires</caption>
+    {{-- Section des commentaires récents --}}
+    <section class="container my-5">
+        <h2 class="text-center text-primary">Les dix derniers commentaires</h2>
+        <table class="table table-hover border">
+            <caption>Les derniers avis de nos visiteurs</caption>
             <thead>
                 <tr>
                     <th scope="col">Pseudo</th>
@@ -111,14 +109,11 @@
                 @endif
             </tbody>
         </table>
-    </div>
+    </section>
 
-    <div class="row justify-content-center m-1">
-        <div class="col-xl-6">
-            <a href="/formCommentaire" class="btn btn-primary mb-3 btn-block">Laissez-nous votre témoignage, impression ou
-                commentaire</a>
-            <a href="/allCommentaire" class="btn btn-primary mb-3 btn-block">Afficher tous les commentaires</a>
-        </div>
-    </div>
-    </div>
+    {{-- Section de soumission de commentaires --}}
+    <section class="container text-center my-5">
+        <a href="/formCommentaire" class="btn btn-primary mb-3">Laissez-nous votre témoignage, impression ou commentaire</a>
+        <a href="/allCommentaire" class="btn btn-primary mb-3">Afficher tous les commentaires</a>
+    </section>
 @endsection
