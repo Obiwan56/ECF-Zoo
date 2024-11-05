@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AnimalVoteRequest;
+use App\Http\Requests\AnimalVoteRequest2;
 use App\Models\AnimalVote;
 use Illuminate\Support\Facades\Storage;
 
@@ -55,7 +56,11 @@ class AnimalVoteController extends Controller
     {
         $vote = AnimalVote::find($id);
 
-        if ($vote && $vote->photo) {
+        if (!$vote) {
+            return redirect('/gestionVoteAnimal')->with('status', 'Animal non trouvé');
+        }
+
+        if ($vote->photo) {
             Storage::disk('public')->delete($vote->photo);
         }
 
@@ -64,12 +69,40 @@ class AnimalVoteController extends Controller
         return redirect('/gestionVoteAnimal')->with('status', 'Animal supprimé avec succès');
     }
 
+
     // Incrémentation des votes
     public function incrementVote(AnimalVote $animalVote)
+{
+    $animalVote->increment('votes');
+    return redirect('/')->with('status', 'Merci pour votre participation');
+}
+
+    //modif vote animal
+    public function formModifAnimalVote($id)
     {
-        $animalVote->increment('votes');
-        return redirect('/')->with('status', 'Merci pour votre participation');
+        $votes = AnimalVote::find($id);
+        return view('voteAnimal.modifAnimalVote', compact('votes'));
     }
 
 
+    public function modifVote($id, AnimalVoteRequest2 $request)
+    {
+        $vote = AnimalVote::findOrFail($id);
+
+        $vote->name = $request->input('name');
+        $vote->race = $request->input('race');
+        $vote->votes = $request->input('votes');
+
+        if ($request->hasFile('photo')) {
+            // Supprimer l'ancienne image si elle existe
+            if ($vote->photo) {
+                Storage::disk('public')->delete($vote->photo);
+            }
+            // Stocker la nouvelle image
+            $vote->photo = $request->file('photo')->store('vote', 'public');
+        }
+        $vote->save();
+
+        return redirect('/gestionVoteAnimal')->with('status', 'Modification OK');
+    }
 }

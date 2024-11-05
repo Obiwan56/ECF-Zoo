@@ -36,7 +36,7 @@
                             <td>{{ \Carbon\Carbon::parse($repas->date)->format('d/m/Y') }}</td>
                             <td>{{ $repas->quantite }} g</td>
                             <td class="d-none d-lg-table-cell">{{ $repas->observation ?? 'Aucune observation' }}</td>
-                            <td>{{ $repas->animal->prenom ?? 'Aucun animal associé' }}</td>
+                            <td>{{ $repas->animal->prenom ?? 'Aucun animal associé' }} ({{ $repas->animal->race ?? 'Race inconnue' }})</td>
                             <td class="d-none d-lg-table-cell">{{ $repas->nourriture->aliment ?? 'Aucun aliment associé' }}</td>
                             <td class="d-none d-lg-table-cell">{{ $repas->updated_at->addHours(2)->format('d-m-Y H:i') }}</td>
 

@@ -11,7 +11,7 @@
         @endif
     </div>
 
-    <div class="p-4">
+    <div class="p-4 container">
         <div class="col-xl">
             <div>
                 <a href="/ajoutAnimalVote">Ajouter un animal pour le vote <i class="bi bi-plus-lg icon2"></i></a>
@@ -32,6 +32,8 @@
                             <td>{{ $vote->name }}</td>
                             <td>{{ $vote->race }}</td>
                             <td>
+                                <a href="/modifAnimalVote/{{ $vote->id }}" class="btn btn-primary">Modifier</a>
+
                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                     data-bs-target="#idmodal_{{ $vote->id }}">Supprimer</button>
                             </td>

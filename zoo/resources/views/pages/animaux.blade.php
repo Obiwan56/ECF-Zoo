@@ -28,41 +28,49 @@
                         <div id="carouselExampleInterval{{ $animal->id }}" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="{{ asset('storage/' . $animal->img1) }}" class="d-block w-100" alt="Image 1">
+                                    <img src="{{ asset('storage/' . $animal->img1) }}" class="d-block w-100" alt="Image 1"
+                                        style="max-height: 250px; max-width: 100%; object-fit: contain;">
                                 </div>
                                 @if ($animal->img2)
                                     <div class="carousel-item">
-                                        <img src="{{ asset('storage/' . $animal->img2) }}" class="d-block w-100" alt="Image 2">
+                                        <img src="{{ asset('storage/' . $animal->img2) }}" class="d-block w-100"
+                                            alt="Image 2" style="max-height: 250px; max-width: 100%; object-fit: contain;">
                                     </div>
                                 @endif
                                 @if ($animal->img3)
                                     <div class="carousel-item">
-                                        <img src="{{ asset('storage/' . $animal->img3) }}" class="d-block w-100" alt="Image 3">
+                                        <img src="{{ asset('storage/' . $animal->img3) }}" class="d-block w-100"
+                                            alt="Image 3" style="max-height: 250px; max-width: 100%; object-fit: contain;">
                                     </div>
                                 @endif
                                 @if ($animal->img4)
                                     <div class="carousel-item">
-                                        <img src="{{ asset('storage/' . $animal->img4) }}" class="d-block w-100" alt="Image 4">
+                                        <img src="{{ asset('storage/' . $animal->img4) }}" class="d-block w-100"
+                                            alt="Image 4" style="max-height: 250px; max-width: 100%; object-fit: contain;">
                                     </div>
                                 @endif
                                 @if ($animal->img5)
                                     <div class="carousel-item">
-                                        <img src="{{ asset('storage/' . $animal->img5) }}" class="d-block w-100" alt="Image 5">
+                                        <img src="{{ asset('storage/' . $animal->img5) }}" class="d-block w-100"
+                                            alt="Image 5" style="max-height: 250px; max-width: 100%; object-fit: contain;">
                                     </div>
                                 @endif
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval{{ $animal->id }}" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleInterval{{ $animal->id }}" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval{{ $animal->id }}" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleInterval{{ $animal->id }}" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-center">{{ $animal->prenom }}</h5>
-                            <a class="btn btn-primary d-grid gap-2 col-6 mx-auto" href="/detailAnimaux/{{ $animal->id }}">Voir détail</a>
+                            <a class="btn btn-primary d-grid gap-2 col-6 mx-auto"
+                                href="/detailAnimaux/{{ $animal->id }}">Voir détail</a>
                         </div>
                     </div>
                 </div>
@@ -73,13 +81,15 @@
 @endsection
 
 <style>
-.carousel-inner {
-    height: 300px; /* Ajustez la hauteur selon vos besoins */
-}
+    .carousel-inner {
+        height: 300px;
+        /* Ajustez la hauteur selon vos besoins */
+    }
 
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Remplit le conteneur en recadrant l'image */
-}
+    .carousel-item img {
+
+        height: 100%;
+        object-fit: cover;
+        /* Remplit le conteneur en recadrant l'image */
+    }
 </style>

@@ -55,15 +55,12 @@
 
             <div class="mt-3">
                 <label for="role" class="form-label">Choix des droits</label>
-                <select id="role" class="form-select" aria-label="Default select example" name="role"
-                    value="{{ $users->role }}">
-                    <option value="employe">Employe</option>
-                    <option value="admin">Admin</option>
-
+                <select id="role" class="form-select" aria-label="Default select example" name="role">
+                    <option value="employe" {{ $users->role == 'employe' ? 'selected' : '' }}>Employe</option>
+                    <option value="veto" {{ $users->role == 'veto' ? 'selected' : '' }}>Vétérinaire</option>
                 </select>
                 @error('role')
-                    <span class="text-danger">
-                        {{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
 

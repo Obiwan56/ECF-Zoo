@@ -10,6 +10,10 @@ class AnimalVote extends Model
     protected $collection = 'animal_votes';
 
     protected $fillable = ['name', 'race', 'photo', 'votes'];
+
+    protected $casts = [
+        'votes' => 'integer',
+    ];
 }
 
 

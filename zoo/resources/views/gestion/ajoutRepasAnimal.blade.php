@@ -9,7 +9,8 @@
 
             <div class="mb-3">
                 <label for="quantite" class="form-label">Quantité en grammes</label>
-                <input type="number" class="form-control" id="quantite" name="quantite" value="{{ old('quantite') }}" step="0.01" min="0">
+                <input type="number" class="form-control" id="quantite" name="quantite" value="{{ old('quantite') }}"
+                    step="0.01" min="0">
                 @error('quantite')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -36,7 +37,9 @@
                 <select id="animal_id" name="animal_id" class="form-control">
                     <option value="">Sélectionnez un animal</option>
                     @foreach ($animals as $animal)
-                        <option value="{{ $animal->id }}">{{ $animal->prenom }}</option>
+                        <option value="{{ $animal->id }}">
+                            {{ $animal->prenom }} ({{ $animal->race }})
+                        </option>
                     @endforeach
                 </select>
                 @error('animal_id')

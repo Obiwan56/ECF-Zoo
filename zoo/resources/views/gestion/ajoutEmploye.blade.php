@@ -55,7 +55,7 @@
                 <label for="role" class="form-label">Fonction</label>
                 <select id="role" class="form-select" aria-label="Default select example" name="role"
                     value="{{ old('role') }}">
-                    <option value="employe">Employé</option>
+                    <option value="employe">Employé(e)</option>
                     <option value="veto">Vétérinaire</option>
                     {{-- <option value="admin">admin</option> --}}
 

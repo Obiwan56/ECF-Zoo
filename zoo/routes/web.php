@@ -117,6 +117,9 @@ Route::middleware(['auth', 'checkrole:employe,admin'])->group(function () {
     Route::get('/ajoutAnimalVote', [AnimalVoteController::class, 'formCreerAnimalVote']);
     Route::post('/ajoutAnimalVote', [AnimalVoteController::class, 'creerAnimalVote']);
     Route::get('/deleteVote/{id}', [AnimalVoteController::class, 'deleteVote']);
+    Route::get('/modifAnimalVote/{id}', [AnimalVoteController::class, 'formModifAnimalVote'])->name('formModifAnimalVote');
+    Route::post('/modifAnimalVote/{id}', [AnimalVoteController::class, 'modifVote'])->name('modifVote');
+
 });
 
 Route::middleware(['auth', 'checkrole:veto,admin'])->group(function () {

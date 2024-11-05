@@ -30,11 +30,12 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card shadow-sm h-100 border-0 rounded-lg overflow-hidden">
                         <img src="{{ asset('storage/' . $habitat->img1) }}" class="card-img-top img-fluid"
-                             style="height: 250px; width: 100%; object-fit: contain"
-                             alt="Image de l'habitat {{ $habitat->nom }}">
+                            style="max-height: 250px; max-width: 100%; object-fit: contain;"
+                            alt="Image de l'habitat {{ $habitat->nom }}">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $habitat->nom }}</h5>
-                            <a href="{{ route('detailHabitat', $habitat->id) }}" class="btn btn-outline-primary">Voir plus</a>
+                            <a href="{{ route('detailHabitat', $habitat->id) }}" class="btn btn-outline-primary">Voir
+                                plus</a>
                         </div>
                     </div>
                 </div>
@@ -50,11 +51,12 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card shadow-sm h-100 border-0 rounded-lg overflow-hidden">
                         <img src="{{ asset('storage/' . $animal->img1) }}" class="card-img-top img-fluid"
-                             style="height: 250px; width: 100%; object-fit: contain"
-                             alt="Image de l'animal {{ $animal->prenom }}">
+                            style="max-height: 250px; max-width: 100%; object-fit: contain;"
+                            alt="Image de l'animal {{ $animal->prenom }}">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $animal->prenom }}</h5>
-                            <a href="{{ route('detailAnimaux', $animal->id) }}" class="btn btn-outline-primary">Voir plus</a>
+                            <a href="{{ route('detailAnimaux', $animal->id) }}" class="btn btn-outline-primary">Voir
+                                plus</a>
                         </div>
                     </div>
                 </div>
@@ -70,11 +72,12 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card shadow-sm h-100 border-0 rounded-lg overflow-hidden">
                         <img src="{{ asset('storage/' . $service->img1) }}" class="card-img-top img-fluid"
-                             style="height: 250px; width: 100%; object-fit: contain"
-                             alt="Image du service {{ $service->nom }}">
+                            style="max-height: 250px; max-width: 100%; object-fit: contain;"
+                            alt="Image du service {{ $service->nom }}">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $service->nom }}</h5>
-                            <a href="{{ route('detailHabitat', $service->id) }}" class="btn btn-outline-primary">Voir plus</a>
+                            <a href="{{ route('detailHabitat', $service->id) }}" class="btn btn-outline-primary">Voir
+                                plus</a>
                         </div>
                     </div>
                 </div>
