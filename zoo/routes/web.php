@@ -40,21 +40,17 @@ Route::get('/habitat/{id}', [HabitatController::class, 'detailHabitat'])->name('
 
 Route::get('/', [HabitatController::class, 'accueil'])->name('accueil');
 
-
-
 Route::get('/habitat', [HabitatController::class, 'habitat']);
 Route::get('/detailHabitat/{id}', [HabitatController::class, 'detailHabitat']);
-
 
 Route::get('/deconnexion', [UserController::class, 'deconnexion']);
 
 Route::get('contact', [ContactController::class, 'formContact']);
 Route::post('contact', [ContactController::class, 'contact']);
 
+Route::get('/voteAnimal', [AnimalVoteController::class, 'VoteAnimal']);
 
-
-
-
+Route::post('/animal_votes/{animalVote}/increment', [AnimalVoteController::class, 'incrementVote'])->name('animal_votes.increment');
 
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -110,14 +106,17 @@ Route::middleware(['auth', 'checkrole:employe,admin'])->group(function () {
     Route::get('/aprouvCom/{id}', [CommentaireController::class, 'aprouvCom']);
     Route::get('/listeComPubli', [CommentaireController::class, 'commentaireOk']);
 
-
-
     Route::get('/gestionHoraire', [HoraireController::class, 'listeHoraire'])->name('gestion.gestionHoraire');
     Route::get('/ajoutHoraire', [HoraireController::class, 'formAjoutHoraire'])->name('gestion.formAjoutHoraire');
     Route::post('/ajoutHoraire', [HoraireController::class, 'ajoutHoraire'])->name('gestion.ajoutHoraire');
     Route::get('/modifHoraire/{id}', [HoraireController::class, 'formModifHoraire'])->name('gestion.formModifHoraire');
     Route::post('/modifHoraire/{id}', [HoraireController::class, 'modifHoraire'])->name('gestion.modifHoraire');
     Route::get('/deleteHoraire/{id}', [HoraireController::class, 'deleteHoraire'])->name('gestion.deleteHoraire');
+
+    Route::get('/gestionVoteAnimal', [AnimalVoteController::class, 'listeVoteAnimal']);
+    Route::get('/ajoutAnimalVote', [AnimalVoteController::class, 'formCreerAnimalVote']);
+    Route::post('/ajoutAnimalVote', [AnimalVoteController::class, 'creerAnimalVote']);
+    Route::get('/deleteVote/{id}', [AnimalVoteController::class, 'deleteVote']);
 });
 
 Route::middleware(['auth', 'checkrole:veto,admin'])->group(function () {
@@ -134,17 +133,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/modifMdp/{id}', [UserController::class, 'formModifMdp'])->name('modifMdp');
     Route::post('/modifMdp/{id}', [UserController::class, 'modifMdp']);
-
 });
 
-Route::get('/gestionVoteAnimal', [AnimalVoteController::class, 'listeVoteAnimal']);
-Route::get('/ajoutAnimalVote', [AnimalVoteController::class, 'formCreerAnimalVote']);
-Route::post('/ajoutAnimalVote', [AnimalVoteController::class, 'creerAnimalVote']);
-Route::get('/deleteVote/{id}', [AnimalVoteController::class, 'deleteVote']);
 
-Route::get('/voteAnimal', [AnimalVoteController::class, 'VoteAnimal']);
 
-Route::post('/animal_votes/{animalVote}/increment', [AnimalVoteController::class, 'incrementVote'])->name('animal_votes.increment');
+
 
 
 

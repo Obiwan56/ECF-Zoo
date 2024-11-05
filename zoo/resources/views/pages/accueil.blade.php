@@ -2,7 +2,6 @@
 
 @section('contenu')
     <div class="p-4">
-        {{-- Notifications de succès ou d'erreur --}}
         @if (session('danger'))
             <div class="alert alert-danger m-4">
                 {{ session('danger') }}
@@ -16,14 +15,14 @@
         @endif
     </div>
 
-    {{-- Section d'accueil --}}
+    {{-- Section accueil --}}
     <section class="text-center my-5">
         <h1 class="text-primary display-1">Bienvenue au parc Arcadia</h1>
         <p class="lead">Découvrez un monde fascinant d'animaux, d'habitats et de services uniques!</p>
         <a href="/voteAnimal" class="btn btn-primary btn-lg mt-3">Votez pour votre Animal préféré</a>
     </section>
 
-    {{-- Section des habitats --}}
+    {{-- Section habitats --}}
     <section class="container my-5">
         <h2 class="text-center text-primary">Découvrez nos habitats</h2>
         <div class="row g-4">
@@ -43,7 +42,7 @@
         </div>
     </section>
 
-    {{-- Section des animaux --}}
+    {{-- Section animaux --}}
     <section class="container my-5">
         <h2 class="text-center text-primary">Découvrez nos ami(e)s pensionnaires</h2>
         <div class="row g-4">
@@ -63,7 +62,7 @@
         </div>
     </section>
 
-    {{-- Section des services --}}
+    {{-- Section services --}}
     <section class="container my-5">
         <h2 class="text-center text-primary">Découvrez nos services et animations</h2>
         <div class="row g-4">
@@ -83,7 +82,7 @@
         </div>
     </section>
 
-    {{-- Section des commentaires récents --}}
+    {{-- Section 10 derniers com --}}
     <section class="container my-5">
         <h2 class="text-center text-primary">Les dix derniers commentaires</h2>
         <table class="table table-hover border">
@@ -111,7 +110,7 @@
         </table>
     </section>
 
-    {{-- Section de soumission de commentaires --}}
+    {{-- Section commentaires --}}
     <section class="container text-center my-5">
         <a href="/formCommentaire" class="btn btn-primary mb-3">Laissez-nous votre témoignage, impression ou commentaire</a>
         <a href="/allCommentaire" class="btn btn-primary mb-3">Afficher tous les commentaires</a>
