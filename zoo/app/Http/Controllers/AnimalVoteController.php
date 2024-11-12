@@ -91,7 +91,7 @@ class AnimalVoteController extends Controller
 
         $vote->name = $request->input('name');
         $vote->race = $request->input('race');
-        $vote->votes = $request->input('votes');
+        // $vote->votes = $request->input('votes');
 
         if ($request->hasFile('photo')) {
             // Supprimer l'ancienne image si elle existe
@@ -99,7 +99,7 @@ class AnimalVoteController extends Controller
                 Storage::disk('public')->delete($vote->photo);
             }
             // Stocker la nouvelle image
-            $vote->photo = $request->file('photo')->store('vote', 'public');
+            $vote->photo = $request->file('photo')->store('photos', 'public');
         }
         $vote->save();
 
