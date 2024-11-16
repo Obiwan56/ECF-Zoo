@@ -5,8 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Zoo Arcadia</title>
 
+    <meta name="description"
+        content="Visitez le Zoo Arcadia, un lieu exceptionnel pour découvrir une variété d'animaux, leur habitat, et participer à des activités éducatives en famille.">
+    <meta name="keywords"
+        content="zoo, animaux, Arcadia, faune, habitats, activités, éducation, famille, tourisme, nature">
+    <meta property="og:title" content="Zoo Arcadia - Découvrez la faune du monde entier">
+    <meta property="og:description"
+        content="Visitez le Zoo Arcadia et explorez une large gamme d'animaux dans leur environnement naturel recréé.">
+    <meta name="robots" content="index, follow">
 </head>
 
 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -59,7 +68,7 @@
                                             <li><a class="dropdown-item" href="/gestionCommentaire">Gestion des commentaires</a>
                                             </li>
                                             <li><a class="dropdown-item" href="/gestionService">Gestion des services</a></li>
-                                            <li><a class="dropdown-item" href="/gestionVehicule">Gestion des messages</a></li>
+                                            <li><a class="dropdown-item" href="#">Gestion des messages</a></li>
                                             <li><a class="dropdown-item" href="/gestionAnimaux">Gestion des animaux</a></li>
                                             <li><a class="dropdown-item" href="/gestionHabitat">Gestion des Habitats</a></li>
                                             <li><a class="dropdown-item" href="/gestionRepasAnimal">Gestion des repas des

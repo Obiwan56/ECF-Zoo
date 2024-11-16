@@ -26,6 +26,7 @@ Ce projet utilise le framework Laravel pour gérer un zoo, incluant la gestion d
 2. Installation des dépendances
 
    - composer install
+   - composer update
 
 3. Effectuer les migrations
 

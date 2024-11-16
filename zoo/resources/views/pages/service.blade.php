@@ -19,14 +19,14 @@
             <article class="service-article {{ $key % 2 != 0 ? 'fond-noir' : '' }}">
                 <div class="container p-4">
                     <h2 class="text-center text-primary">{{ $service->nom }}</h2>
-                    <div class="row row-cols-2 align-items-center">
-                        <div class="col">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-6">
                             <p class="pcarrosserie">{{ $service->description }}</p>
                             {{-- <div class="bouton p-4">
                                 <a href="/contact" class="btn btn-primary">Contactez-nous</a>
                             </div> --}}
                         </div>
-                        <div class="col">
+                        <div class="col-12 col-md-6 d-none d-md-block">
                             <div id="carouselExampleInterval{{ $service->id }}" class="carousel slide"
                                 data-bs-ride="carousel">
                                 <div class="carousel-inner">
@@ -68,14 +68,14 @@
             background-color: #262526;
         }
 
-        /* Appliquer une taille fixe et homogène à toutes les images du carrousel */
+        /*  taille fixe images du carrousel */
         .carousel-img {
             width: 100%;
-            height: 400px; /* Par exemple, vous pouvez ajuster la hauteur */
-            object-fit: cover; /* "cover" pour que l'image remplisse la zone sans distorsion */
+            height: 400px;
+            object-fit: cover;
         }
 
-        /* Inverser l'ordre des colonnes sur les écrans de taille moyenne (md) et plus grands */
+        /* Inverse ordre des colonnes sur écran taille moyenne et plus grands */
         @media (min-width: 768px) {
             .service-article:nth-child(even) .row-cols-2 .col:first-child {
                 order: 2;
