@@ -14,7 +14,7 @@ Ce projet utilise le framework Laravel pour gérer un zoo, incluant la gestion d
 - PHP 8.2+
 - Composer
 - Laravel 10.x
-- MongoDB
+- MongoDB 6.0
 
 ## Installation
 
@@ -35,3 +35,10 @@ Ce projet utilise le framework Laravel pour gérer un zoo, incluant la gestion d
 4. Lancer le serveur local
 
     - php artisan serve
+
+
+# Lors du déploiement sur OVH, des limitations ont empêché le bon fonctionnement de MongoDB, 
+# affectant notamment le système de votes. Découvert trop tard pour le rendu final de l'ECF, 
+# ce problème est lié à l'hébergement. 
+# Une migration vers un fournisseur comme MongoDB Atlas est envisagée pour résoudre cette incompatibilité. 
+# Les fonctionnalités SQL restent pleinement opérationnelles.

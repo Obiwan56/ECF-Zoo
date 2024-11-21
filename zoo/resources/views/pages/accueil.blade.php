@@ -76,7 +76,7 @@
                             alt="Image du service {{ $service->nom }}">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $service->nom }}</h5>
-                            <a href="{{ route('detailHabitat', $service->id) }}" class="btn btn-outline-primary">Voir
+                            <a href="/service" class="btn btn-outline-primary">Voir
                                 plus</a>
                         </div>
                     </div>
