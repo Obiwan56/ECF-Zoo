@@ -57,5 +57,13 @@ class RapportVetoController extends Controller
         return redirect()->route('gestion.gestionRapportVeto')->with('status', 'Rapport supprimé avec succès');
     }
 
+
+    public function detailRapport($id)
+{
+    $rapports = RapportVeto::with('animal')->findOrFail($id);
+    $animal = $rapports->animal; // Récupération de l'animal associé
+
+    return view('gestion.detailRapportVeto', compact('rapports', 'animal'));
 }
 
+}

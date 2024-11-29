@@ -13,9 +13,11 @@
 
     <div class="container">
         <div class="col-xl">
-            <div>
-                <a href="/ajoutRapportVeto">Ajouter un rapport sur un animal <i class="bi bi-plus-lg icon2"></i></a>
-            </div>
+            @if (auth()->user()->role === 'veto')
+                <div>
+                    <a href="/ajoutRapportVeto">Ajouter un rapport sur un animal <i class="bi bi-plus-lg icon2"></i></a>
+                </div>
+            @endif
 
             <table class="table table-striped" id="tablCom">
                 <caption class="caption">Liste des Rapports à ce jour</caption>
@@ -34,11 +36,19 @@
                             <td>{{ $rapport->animal->prenom }}</td>
                             <td>{{ \Carbon\Carbon::parse($rapport->date)->format('d-m-Y') }}</td>
                             <td class="d-none d-lg-table-cell">{{ Str::limit($rapport->detail, 50) }}</td>
-                            <td class="d-none d-lg-table-cell">{{ $rapport->updated_at->addHours(2)->format('d-m-Y H:i') }}</td>
+                            <td class="d-none d-lg-table-cell">{{ $rapport->updated_at->addHours(2)->format('d-m-Y H:i') }}
+                            </td>
                             <td>
-                                <a href="/modifRapportVeto/{{ $rapport->id }}" class="btn btn-primary">Modifier</a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                    data-bs-target="#idmodal_{{ $rapport->id }}">Supprimer</button>
+                                @if (auth()->user()->role === 'veto')
+                                    <a href="/modifRapportVeto/{{ $rapport->id }}" class="btn btn-primary">Modifier</a>
+                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                        data-bs-target="#idmodal_{{ $rapport->id }}">Supprimer</button>
+                                @endif
+
+                                @if (auth()->user()->role === 'admin')
+                                    <a href="/detailRapportVeto/{{ $rapport->id }}" class="btn btn-secondary">Détail</a>
+                                @endif
+
                             </td>
                         </tr>
 

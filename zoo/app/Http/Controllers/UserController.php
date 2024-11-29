@@ -27,7 +27,7 @@ class UserController extends Controller
 
     public function listeEmploye()
     {
-        $roles = ['employe', 'veto']; // Les rôles que tu veux afficher
+        $roles = ['employe', 'veto']; // rôles affichés
         $users = User::whereIn('role', $roles)->get(); // Filtrer les utilisateurs par rôle
         return view('gestion.gestionEmploye', compact('users'));
     }

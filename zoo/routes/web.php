@@ -60,6 +60,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/modifEmploye/{id}', [UserController::class, 'modifEmploye']);
     Route::post('/modifEmploye/{id}', [UserController::class, 'modifUser']);
     Route::get('/effacerEmploye/{id}', [UserController::class, 'effacerEmploye']);
+
+    Route::get('/detailRapportVeto/{id}', [RapportVetoController::class, 'detailRapport'])->name('detailRapportVeto');
+
 });
 
 Route::middleware(['auth', 'checkrole:employe,admin'])->group(function () {
