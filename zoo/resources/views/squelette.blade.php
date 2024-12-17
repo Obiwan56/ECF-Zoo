@@ -143,4 +143,6 @@
     </footer>
 </body>
 
+<script src="{{ asset('js/recherche.js') }}"></script>
+
 </html>

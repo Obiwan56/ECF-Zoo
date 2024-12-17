@@ -7,6 +7,7 @@ use App\Http\Requests\AnimauxRequest;
 use App\Http\Requests\AnimauxRequest2;
 use App\Models\Animal;
 use App\Models\Habitat; // Importer le modèle Habitat
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class AnimalController extends Controller
@@ -39,10 +40,21 @@ class AnimalController extends Controller
         return view('gestion.ajoutAnimaux', compact('habitats'));
     }
 
-    public function animal()
+    public function animal(Request $request)
     {
-        $animals = Animal::with('habitat')->get(); // Inclure l'habitat dans la requête
-        return view('pages.animaux', compact('animals'));
+        $race = $request->query('race'); // Récupérer la race sélectionnée depuis la requête
+
+        $animals = $race
+            ? Animal::with('habitat')->where('race', $race)->get()
+            : Animal::with('habitat')->get();
+
+        if ($request->ajax()) {
+            return view('partials.animals', compact('animals'))->render();
+        }
+
+        $races = Animal::select('race')->distinct()->pluck('race');
+
+        return view('pages.animaux', compact('animals', 'races'));
     }
 
     public function formModifAnimaux($id)

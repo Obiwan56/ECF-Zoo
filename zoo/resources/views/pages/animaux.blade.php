@@ -19,7 +19,16 @@
 
     <div class="container-fluid mt-4">
 
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 justify-content-center">
+        <div class="mb-4">
+            <select id="raceFilter" class="form-select">
+                <option value="" selected>-- Toutes les races --</option>
+                @foreach ($races as $race)
+                    <option value="{{ $race }}">{{ $race }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 justify-content-center" id="animalsContainer">
             @foreach ($animals as $animal)
                 <input type="text" name="id" style="display: none" value="{{ $animal->id }}">
 
@@ -79,6 +88,7 @@
 
     </div>
 @endsection
+
 
 <style>
     .carousel-inner {
