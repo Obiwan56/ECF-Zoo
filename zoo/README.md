@@ -1,44 +1,73 @@
-# Projet Laravel Zoo
+Projet Laravel Zoo
 
-Ce projet utilise le framework Laravel pour gérer un zoo, incluant la gestion des animaux, des repas, des rapports vétérinaires et des votes sur les photos des animaux.
+Une application de gestion de zoo développée avec Laravel, intégrant la gestion des animaux, des repas, des rapports vétérinaires, et un système de votes pour les photos des animaux.
 
-## Technologies utilisées
+Technologies utilisées
 
-- **Laravel** : Framework PHP pour le développement d'applications web.
-- **MongoDB** : Base de données NoSQL pour stocker les votes des animaux.
-- **MySQL** : Base de données relationnelle pour les autres informations liées aux animaux.
-- **XAMPP** : Environnement local de développement pour PHP et MySQL.
+Laravel : Framework PHP moderne et flexible pour développer des applications robustes.
 
-## Prérequis
+MongoDB : Base de données NoSQL utilisée pour gérer les votes des photos des animaux.
 
-- PHP 8.2+
-- Composer
-- Laravel 10.x
-- MongoDB 6.0
+MySQL : Base de données relationnelle pour gérer les données liées aux animaux, habitats, repas, et rapports.
 
-## Installation
+XAMPP : Environnement de développement local pour exécuter PHP et MySQL facilement.
 
-1. Clonez ce dépôt :
+Prérequis
 
-   ```bash
-   git clone https://github.com/Obiwan56/ECF-Zoo
+PHP 8.2+ avec les extensions PDO, JSON, et OpenSSL activées.
 
-2. Installation des dépendances
+Composer pour gérer les dépendances PHP.
 
-   - composer install
-   - composer update
+Laravel 10.x pour exécuter l'application.
 
-3. Effectuer les migrations
+MongoDB 6.0 installé et configuré avec un utilisateur et une base de données actifs.
 
-    - php artisan migrate
+Installation
 
-4. Lancer le serveur local
+Clonez ce dépôt :
 
-    - php artisan serve
+git clone https://github.com/Obiwan56/ECF-Zoo  
+cd ECF-Zoo  
 
+Installez les dépendances avec Composer :
 
-# Lors du déploiement sur OVH, des limitations ont empêché le bon fonctionnement de MongoDB, 
-# affectant notamment le système de votes. Découvert trop tard pour le rendu final de l'ECF, 
-# ce problème est lié à l'hébergement. 
-# Une migration vers un fournisseur comme MongoDB Atlas est envisagée pour résoudre cette incompatibilité. 
-# Les fonctionnalités SQL restent pleinement opérationnelles.
+composer install  
+
+Configurez le fichier .env :Copiez le fichier .env.example en .env et modifiez les paramètres suivants :
+
+Base de données MySQL :
+
+DB_CONNECTION=mysql  
+DB_HOST=127.0.0.1  
+DB_PORT=3306  
+DB_DATABASE=nom_de_votre_base  
+DB_USERNAME=votre_utilisateur  
+DB_PASSWORD=votre_mot_de_passe  
+
+Connexion MongoDB :
+
+MONGO_DB_URI=mongodb://<utilisateur>:<mot_de_passe>@<hôte>:<port>/<nom_base>  
+
+Générez la clé de l'application :
+
+php artisan key:generate  
+
+Effectuez les migrations pour créer les tables MySQL :
+
+php artisan migrate  
+
+Lancez le serveur local :
+
+php artisan serve  
+
+Fonctionnalités principales
+
+Gestion des animaux : création, modification, suppression et affichage.
+
+Gestion des repas des animaux : suivi des repas quotidiens.
+
+Gestion des rapports vétérinaires : création, modification et affichage des détails.
+
+Système de votes : les visiteurs peuvent voter pour leur animal préféré, avec stockage dans MongoDB.
+
+Interface utilisateur intuitive et responsive.
